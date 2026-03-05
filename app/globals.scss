@@ -1,0 +1,328 @@
+@import "tailwindcss";
+
+// ============================================
+// 디자인 회사 랜딩 — 틸(청록) & 앰버 컬러 컨셉
+// ============================================
+:root {
+  color-scheme: light;
+  --background: #f0fdfa;
+  --foreground: #134e4a;
+  --surface: #ffffff;
+  --border: #99f6e4;
+  --border-strong: #5eead4;
+  --muted: #0d9488;
+  --muted-strong: #0f766e;
+  /* 라디우스 시스템 */
+  --radius: 12px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  /* 그림자 — 틸 톤 */
+  --shadow-sm:
+    0 1px 2px rgba(13, 148, 136, 0.06), 0 2px 8px rgba(13, 148, 136, 0.04);
+  --shadow-md:
+    0 4px 12px rgba(13, 148, 136, 0.08), 0 8px 24px rgba(13, 148, 136, 0.06);
+  --shadow-lg:
+    0 12px 32px rgba(13, 148, 136, 0.1), 0 24px 48px rgba(13, 148, 136, 0.06);
+  --shadow-accent:
+    0 8px 24px rgba(13, 148, 136, 0.2), 0 4px 12px rgba(13, 148, 136, 0.15);
+  /* 메인 액센트 — 틸 */
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-soft: rgba(13, 148, 136, 0.12);
+  --accent-muted: rgba(13, 148, 136, 0.18);
+  --accent-border: rgba(13, 148, 136, 0.35);
+  /* 포인트 컬러 — 앰버 */
+  --accent-warm: #d97706;
+  --accent-warm-hover: #b45309;
+  /* 섹션 배경 */
+  --section-bg: #f0fdfa;
+  --section-alt: #ccfbf1;
+  --section-hero-end: #99f6e4;
+  /* 보조 톤 */
+  --coral: #0d9488;
+  --teal: #0f766e;
+  --amber: #d97706;
+  --sky: #14b8a6;
+  /* 그라데이션 */
+  --gradient-hero: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f0fdfa 50%,
+    #ccfbf1 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    #0d9488 0%,
+    #14b8a6 50%,
+    #0d9488 100%
+  );
+  --gradient-accent-hover: linear-gradient(
+    135deg,
+    #0f766e 0%,
+    #0d9488 50%,
+    #0f766e 100%
+  );
+  --gradient-section-a: linear-gradient(
+    180deg,
+    #f0fdfa 0%,
+    #ccfbf1 40%,
+    #f0fdfa 100%
+  );
+  --gradient-section-b: linear-gradient(
+    180deg,
+    #ccfbf1 0%,
+    #99f6e4 50%,
+    #ccfbf1 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 100% 80% at 50% 0%,
+    rgba(13, 148, 136, 0.06) 0%,
+    transparent 60%
+  );
+  /* 다크 영역 — 딥 틸 */
+  --dark-bg: #0f766e;
+  --dark-fg: #f0fdfa;
+  --dark-border: rgba(255, 255, 255, 0.15);
+  /* 트랜지션 */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.28s;
+  --duration-slow: 0.4s;
+  --duration-wipe: 0.8s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtleGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientFlowVertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shimmerLine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  33% {
+    transform: translate(-48%, -5px) scale(1.02);
+  }
+  66% {
+    transform: translate(-52%, -3px) scale(0.98);
+  }
+}
+
+/* Wipe 효과 — 고급스러운 등장 애니메이션 */
+@keyframes wipeInLeft {
+  from {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeInRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeRevealUp {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeRevealDown {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes lineExpand {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* 빛이 지나가는 듯한 쉬머 — 버튼에 반복 재생 */
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-100%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-18deg);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-naemojin);
+  --font-mono: var(--font-naemojin);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 50%, #f0fdfa 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family:
+    var(--font-naemojin),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+/* 포커스 링 — 접근성 + 디자인 톤 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 스킵 링크 — 키보드/스크린리더 접근성·SEO */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  text-decoration: none;
+  clip-path: inset(50%);
+  overflow: hidden;
+
+  &:focus {
+    clip-path: none;
+  }
+}
