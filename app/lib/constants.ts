@@ -1,12 +1,12 @@
 export const TELEGRAM_URL = "https://t.me/AuDesign";
 export const TELEGRAM_ID = "AuDesign";
 
-/** SEO: 배포 시 NEXT_PUBLIC_SITE_URL 환경변수로 실제 도메인 설정 권장 */
+/** SEO: 프로덕션 도메인. NEXT_PUBLIC_SITE_URL으로 스테이징 등 오버라이드 가능 */
 export const SITE_URL =
   typeof process.env.NEXT_PUBLIC_SITE_URL === "string" &&
   process.env.NEXT_PUBLIC_SITE_URL
     ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
-    : "https://audesign.netlify.app";
+    : "https://au-designlab.com";
 
 /** 업체명 */
 export const COMPANY_NAME = "에이유디자인";
