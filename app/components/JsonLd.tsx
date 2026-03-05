@@ -13,6 +13,7 @@ export default function JsonLd() {
     "@type": "Organization",
     "@id": organizationId,
     name: COMPANY_NAME,
+    alternateName: ["에이유디자인", "AuDesign", "au-designlab", "au-designlab.com"],
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     logo: {
@@ -26,6 +27,7 @@ export default function JsonLd() {
       contactType: "customer service",
       availableLanguage: "Korean",
       url: TELEGRAM_URL,
+      areaServed: "KR",
     },
     sameAs: [TELEGRAM_URL],
   };
@@ -104,6 +106,7 @@ export default function JsonLd() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     name: SITE_NAME,
+    alternateName: ["에이유디자인", "au-designlab"],
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     inLanguage: "ko",

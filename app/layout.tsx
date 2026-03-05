@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, COMPANY_NAME, OG_IMAGE } from "./lib/constants";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, COMPANY_NAME, BRAND_SLUG, OG_IMAGE } from "./lib/constants";
 import "./globals.scss";
 import JsonLd from "./components/JsonLd";
 
@@ -69,6 +69,8 @@ const keywords = [
   "등록용 배너 제작",
   "광고 배너 제작",
   "채널 배너 제작",
+  "au-designlab",
+  "에이유디자인 배너",
 ];
 
 export const viewport: Viewport = {
@@ -79,23 +81,25 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: COMPANY_NAME,
   title: {
     default: title,
     template: `%s | ${SITE_NAME}`,
   },
   description,
   keywords,
-  authors: [{ name: COMPANY_NAME }],
+  authors: [{ name: COMPANY_NAME, url: SITE_URL }],
   creator: COMPANY_NAME,
   publisher: COMPANY_NAME,
   formatDetection: {
     telephone: false,
+    email: false,
   },
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: SITE_URL,
-    siteName: SITE_NAME,
+    siteName: `${COMPANY_NAME} (${BRAND_SLUG})`,
     title,
     description,
     images: [OG_IMAGE],
@@ -105,6 +109,7 @@ export const metadata: Metadata = {
     title,
     description,
     creator: "@AuDesign",
+    site: "@AuDesign",
     images: [OG_IMAGE.url],
   },
   referrer: "origin-when-cross-origin",

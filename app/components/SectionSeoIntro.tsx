@@ -12,7 +12,7 @@ export default function SectionSeoIntro() {
     >
       <div className={styles.container}>
         <p className={styles.sectionSeoIntroText}>
-          에이유디자인은 <strong>오피가이드 배너제작·오피가이드 배너 제작·오피가이드 프로필 제작</strong>을 핵심으로,
+          <strong>에이유디자인(au-designlab)</strong>은 <strong>오피가이드 배너제작·오피가이드 배너 제작·오피가이드 프로필 제작</strong>을 핵심으로,
           오피스타, 오피뷰, 외로운밤, 오피아트, 오피스북, 밤공유, 대밤, 마사지퀸, 퀸알바, 인천달리기, 부산달리기, 부달(부산유흥) 등
           업소·홍보·지역 플랫폼에 등록할 <strong>배너 제작·프로필 제작</strong>을 맞춤 진행합니다.
           어디보다 완성도 높은 퀄리티를 제공하며, <strong>20% 할인 이벤트</strong>로 더 유리한 가격에 이용할 수 있습니다.
