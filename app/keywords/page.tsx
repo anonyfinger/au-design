@@ -26,7 +26,7 @@ export const metadata = {
     url: `${SITE_URL}/keywords`,
     title: "키워드별 보기 · 오피가이드 배너제작 등 | 에이유디자인",
     description:
-      "오피가이드 배너제작·오피가이드 배너 제작 키워드. 오피스타, 퀸알바, 인천달리기, 부산달리기 등 플랫폼별·지역별 배너·프로필 제작 키워드 목록. 텔레그램 @AuDesign.",
+      "오피가이드 배너제작·오피가이드 배너 제작 키워드. 오피스타, 퀸알바, 인천달리기, 부산달리기 등 플랫폼별·지역별 배너·프로필 제작 키워드 목록. 텔레그램 @BroCPN.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/keywords` },

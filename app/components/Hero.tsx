@@ -36,7 +36,7 @@ export default function Hero() {
         </h1>
         <p className={styles.heroDesc}>
           오피가이드·오피스타·퀸알바 등 플랫폼 규격에 맞춘 메인 프로필·업체 소개·가격표·출근부
-          <strong> 8장 패키지</strong>를 <strong>20% 할인</strong>에 제공합니다.
+          <strong> 8장 패키지</strong>를 <strong>10만원 할인</strong>에 제공합니다.
           디자인 하나로 업소 이미지가 달라집니다.
         </p>
         <div className={styles.heroSocialProof}>
@@ -61,7 +61,7 @@ export default function Hero() {
           </a>
         </div>
         <p className={styles.heroUrgency}>
-          ⏰ 이번 달 한정 20% 할인 · 지금 문의하시면 견적 즉시 안내
+          ⏰ 이번 달 한정 10만원 할인 · 지금 문의하시면 견적 즉시 안내
         </p>
       </div>
     </section>

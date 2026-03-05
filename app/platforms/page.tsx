@@ -7,7 +7,7 @@ import { PLATFORM_LIST } from "../lib/platforms";
 export const metadata = {
   title: "배너·프로필 제작 플랫폼 안내",
   description:
-    "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타, 오피뷰, 외로운밤, 오피아트, 오피스북, 밤공유, 부달, 대밤, 마사지퀸, 퀸알바 등 홍보·지역 플랫폼 배너·프로필 맞춤 제작. 규격 1:1 제작. 텔레그램 @AuDesign.",
+    "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타, 오피뷰, 외로운밤, 오피아트, 오피스북, 밤공유, 부달, 대밤, 마사지퀸, 퀸알바 등 홍보·지역 플랫폼 배너·프로필 맞춤 제작. 규격 1:1 제작. 텔레그램 @BroCPN.",
   keywords: [
     "오피가이드 배너제작",
     "오피가이드 배너 제작",
@@ -33,7 +33,7 @@ export const metadata = {
     url: `${SITE_URL}/platforms`,
     title: "배너·프로필 제작 플랫폼 안내",
     description:
-      "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 맞춤 제작. 텔레그램 @AuDesign.",
+      "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 맞춤 제작. 텔레그램 @BroCPN.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/platforms` },

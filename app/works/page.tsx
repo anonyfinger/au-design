@@ -12,7 +12,7 @@ const WORKS_ORDERED = [...WORKS].sort((a, b) =>
 export const metadata = {
   title: "작업물 · 제작 사례",
   description:
-    "에이유디자인 오피가이드 배너제작·오피가이드 프로필 제작 사례. 오피스타·퀸알바 등 플랫폼용 맞춤 제작. 문의 텔레그램 @AuDesign.",
+    "에이유디자인 오피가이드 배너제작·오피가이드 프로필 제작 사례. 오피스타·퀸알바 등 플랫폼용 맞춤 제작. 문의 텔레그램 @BroCPN.",
   keywords: [
     "오피가이드 배너제작",
     "오피가이드 배너 제작",
@@ -29,7 +29,7 @@ export const metadata = {
     url: `${SITE_URL}/works`,
     title: "작업물 · 오피가이드 배너제작 사례 | 에이유디자인",
     description:
-      "에이유디자인 오피가이드 배너제작·프로필 제작 사례. 오피스타·퀸알바 등 맞춤 제작. 텔레그램 @AuDesign.",
+      "에이유디자인 오피가이드 배너제작·프로필 제작 사례. 오피스타·퀸알바 등 맞춤 제작. 텔레그램 @BroCPN.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/works` },
@@ -84,7 +84,7 @@ export default function WorksPage() {
                 rel="noopener noreferrer"
                 className={styles.worksPageCtaLink}
               >
-                텔레그램 @AuDesign
+                텔레그램 @BroCPN
               </a>
               으로 부담 없이 연락해 주세요.
             </p>

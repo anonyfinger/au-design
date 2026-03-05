@@ -5,12 +5,12 @@ const STEPS = [
   {
     emoji: "💬",
     title: "텔레그램으로 문의",
-    desc: "@AuDesign으로 플랫폼·업종·수량을 보내 주시면 견적을 바로 안내해 드립니다.",
+    desc: "@BroCPN으로 플랫폼·업종·수량을 보내 주시면 견적을 바로 안내해 드립니다.",
     highlight: "평균 응답 시간 1시간 이내",
   },
   {
     emoji: "📋",
-    title: "견적 확인 & 20% 할인 적용",
+    title: "견적 확인 & 10만원 할인 적용",
     desc: `${EVENT_LABEL} 적용 가격으로 안내해 드립니다. 코스와 구성을 함께 결정합니다.`,
     highlight: "이번 달 한정 할인",
   },
@@ -67,7 +67,7 @@ export default function SectionReservation() {
           >
             {CTA_PRIMARY} →
           </a>
-          <p className={styles.reservationCtaNote}>텔레그램 @AuDesign · 평균 1시간 내 응답</p>
+          <p className={styles.reservationCtaNote}>텔레그램 @BroCPN · 평균 1시간 내 응답</p>
         </div>
       </div>
     </section>

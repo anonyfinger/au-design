@@ -10,7 +10,7 @@ export default function CtaBlock() {
       </h2>
       <p className={styles.ctaBlockQuality}>{QUALITY_PROMISE}</p>
       <p className={styles.ctaBlockDesc}>
-        시안 먼저 확인하고 결정하세요. 텔레그램 @AuDesign으로 플랫폼·업종만 알려주시면
+        시안 먼저 확인하고 결정하세요. 텔레그램 @BroCPN으로 플랫폼·업종만 알려주시면
         견적을 즉시 안내해 드립니다.
       </p>
       <div className={styles.ctaBlockActions}>
@@ -19,7 +19,7 @@ export default function CtaBlock() {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.ctaBlockButton}
-          aria-label={`${CTA_PRIMARY} (텔레그램 @AuDesign, 새 창)`}
+          aria-label={`${CTA_PRIMARY} (텔레그램 @BroCPN, 새 창)`}
         >
           {CTA_PRIMARY} →
         </a>

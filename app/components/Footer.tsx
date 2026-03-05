@@ -9,7 +9,7 @@ export default function Footer() {
           <p className={styles.footerBrand}>에이유디자인 · 오피가이드 배너제작 전문</p>
           <p className={styles.footerBrandDesc}>
             오피가이드 배너제작·오피가이드 프로필 제작, 오피스타·퀸알바·부달·대밤 등 홍보 플랫폼 맞춤 제작.
-            시안 제공·상담 문의 텔레그램 @AuDesign
+            시안 제공·상담 문의 텔레그램 @BroCPN
           </p>
         </div>
         <div>
@@ -76,15 +76,15 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.footerLink}
-                aria-label="텔레그램 @AuDesign 문의 (새 창)"
+                aria-label="텔레그램 @BroCPN 문의 (새 창)"
               >
-                텔레그램 @AuDesign
+                텔레그램 @BroCPN
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <p className={styles.footerBottom}>© 에이유디자인. 문의: 텔레그램 @AuDesign</p>
+      <p className={styles.footerBottom}>© 에이유디자인. 문의: 텔레그램 @BroCPN</p>
     </footer>
   );
 }

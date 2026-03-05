@@ -23,7 +23,7 @@ export const metadata = {
     url: `${SITE_URL}/guide`,
     title: "배너·프로필 제작 가이드 | 에이유디자인",
     description:
-      "오피가이드 배너제작·오피가이드 배너 제작 가이드. 오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 제작 가이드. 맞춤 제작 문의 텔레그램 @AuDesign.",
+      "오피가이드 배너제작·오피가이드 배너 제작 가이드. 오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 제작 가이드. 맞춤 제작 문의 텔레그램 @BroCPN.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/guide` },

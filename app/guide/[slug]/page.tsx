@@ -163,7 +163,7 @@ export default async function GuidePostPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className={styles.guideArticleCtaButton}
                 >
-                  텔레그램 @AuDesign
+                  텔레그램 @BroCPN
                 </a>
                 으로 연락해 주세요.
               </p>

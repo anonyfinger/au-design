@@ -1,5 +1,5 @@
-export const TELEGRAM_URL = "https://t.me/AuDesign";
-export const TELEGRAM_ID = "AuDesign";
+export const TELEGRAM_URL = "https://t.me/BroCPN";
+export const TELEGRAM_ID = "BroCPN";
 
 /** SEO: 프로덕션 도메인. NEXT_PUBLIC_SITE_URL으로 스테이징 등 오버라이드 가능 */
 export const SITE_URL =
@@ -17,11 +17,11 @@ export const SITE_NAME =
   "에이유디자인 | 오피가이드 배너제작·오피가이드 프로필 제작·오피스타 퀸알바 배너";
 /** 메타 설명: 155자 이내 권장 (검색 스니펫 절단 방지) */
 export const SITE_DESCRIPTION =
-  "에이유디자인(au-designlab) 오피가이드 배너제작·프로필 제작 전문. 오피스타·퀸알바·부달·대밤 등 플랫폼 규격 맞춤 8장 패키지, 20% 할인. 견적·시안 문의 텔레그램 @AuDesign.";
+  "에이유디자인(au-designlab) 오피가이드 배너제작·프로필 제작 전문. 오피스타·퀸알바·부달·대밤 등 플랫폼 규격 맞춤 8장 패키지, 10만원 할인. 견적·시안 문의 텔레그램 @BroCPN.";
 
 /** 프로모션·퀄리티 메시지 (랜딩·CTA 통일) */
-export const EVENT_DISCOUNT = "20%";
-export const EVENT_LABEL = "20% 할인 이벤트";
+export const EVENT_DISCOUNT = "10만원";
+export const EVENT_LABEL = "10만원 할인 이벤트";
 export const QUALITY_PROMISE =
   "어디보다 완성도 높은 퀄리티로 제작해 드립니다.";
 

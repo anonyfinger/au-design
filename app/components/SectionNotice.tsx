@@ -16,7 +16,7 @@ const NOTICE_ITEMS = [
   },
   {
     title: "문의 채널",
-    text: "배너 제작 문의·견적·예약은 텔레그램(@AuDesign)으로만 받습니다.",
+    text: "배너 제작 문의·견적·예약은 텔레그램(@BroCPN)으로만 받습니다.",
   },
 ] as const;
 
