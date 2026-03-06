@@ -30,7 +30,7 @@ export const CTA_PRIMARY = "지금 할인받고 제작하기";
 export const CTA_PRIMARY_DESC = "텔레그램으로 바로 연결 · 할인가 적용";
 
 /** OG 이미지: 상대 경로 (metadataBase와 조합해 절대 URL 생성) */
-export const OG_IMAGE_PATH = "/grok-image-596dc355-e482-4cc1-a76c-6cef059a8be6.png";
+export const OG_IMAGE_PATH = "/sns-img.png";
 export const OG_IMAGE = {
   url: OG_IMAGE_PATH,
   width: 1200,
