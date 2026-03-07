@@ -1,4 +1,3 @@
-import styles from "../landing.module.scss";
 import { TELEGRAM_URL, CTA_PRIMARY } from "../lib/constants";
 
 const NOTICE_ITEMS = [
@@ -16,7 +15,7 @@ const NOTICE_ITEMS = [
   },
   {
     title: "문의 채널",
-    text: "배너 제작 문의·견적·예약은 텔레그램(@BroCPN)으로만 받습니다.",
+    text: "배너 제작 문의·견적·예약은 텔레그램(@AUDesignlab)으로만 받습니다.",
   },
 ] as const;
 
@@ -24,33 +23,33 @@ export default function SectionNotice() {
   return (
     <section
       id="notice"
-      className={styles.sectionAlt}
+      className="sectionAlt"
       aria-labelledby="notice-title"
     >
-      <div className={styles.container}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>의뢰 전 확인</p>
-          <h2 id="notice-title" className={styles.sectionTitle}>의뢰 시 주의사항</h2>
-          <p className={styles.sectionDesc}>
+      <div className="container">
+        <div className="sectionHead">
+          <p className="sectionLabel">의뢰 전 확인</p>
+          <h2 id="notice-title" className="sectionTitle">의뢰 시 주의사항</h2>
+          <p className="sectionDesc">
             배너 제작 의뢰 전에 아래 내용을 확인해 주세요.
           </p>
         </div>
-        <ul className={styles.noticeList}>
+        <ul className="noticeList">
           {NOTICE_ITEMS.map((item, i) => (
-            <li key={item.title} className={styles.noticeItem}>
-              <span className={styles.noticeIcon}>{i + 1}</span>
+            <li key={item.title} className="noticeItem">
+              <span className="noticeIcon">{i + 1}</span>
               <div>
                 <strong>{item.title}</strong> — {item.text}
               </div>
             </li>
           ))}
         </ul>
-        <div className={styles.sectionCta}>
+        <div className="sectionCta">
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.telegramButton}
+            className="telegramButton"
             aria-label={`${CTA_PRIMARY} (텔레그램)`}
           >
             {CTA_PRIMARY}

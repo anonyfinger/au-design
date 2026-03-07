@@ -13,7 +13,7 @@ export default function JsonLd() {
     "@type": "Organization",
     "@id": organizationId,
     name: COMPANY_NAME,
-    alternateName: ["에이유디자인", "BroCPN", "au-designlab", "au-designlab.com"],
+    alternateName: ["에이유디자인", "AUDesignlab", "au-designlab", "au-designlab.com"],
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     logo: {
@@ -141,7 +141,7 @@ export default function JsonLd() {
         name: "오피가이드 배너제작·오피가이드 프로필 제작 문의는 어떻게 하나요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "텔레그램 @BroCPN으로 연락해 주시면 됩니다. 용도·플랫폼·수량을 알려주시면 견적과 제작 기간을 안내해 드립니다.",
+          text: "텔레그램 @AUDesignlab으로 연락해 주시면 됩니다. 용도·플랫폼·수량을 알려주시면 견적과 제작 기간을 안내해 드립니다.",
         },
       },
       {
@@ -165,7 +165,7 @@ export default function JsonLd() {
         name: "10만원 할인 이벤트와 퀄리티는 어떤가요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "에이유디자인은 10만원 할인 이벤트를 진행 중이며, 어디보다 완성도 높은 퀄리티로 배너·프로필을 제작해 드립니다. 견적 문의 시 할인 적용 가격을 안내해 드리니 텔레그램 @BroCPN으로 문의해 주세요.",
+          text: "에이유디자인은 10만원 할인 이벤트를 진행 중이며, 어디보다 완성도 높은 퀄리티로 배너·프로필을 제작해 드립니다. 견적 문의 시 할인 적용 가격을 안내해 드리니 텔레그램 @AUDesignlab으로 문의해 주세요.",
         },
       },
     ],
@@ -181,7 +181,7 @@ export default function JsonLd() {
         "@type": "HowToStep",
         position: 1,
         name: "텔레그램으로 문의",
-        text: "@BroCPN으로 용도·크기·수량을 알려주시면 견적을 안내해 드립니다.",
+        text: "@AUDesignlab으로 용도·크기·수량을 알려주시면 견적을 안내해 드립니다.",
       },
       {
         "@type": "HowToStep",

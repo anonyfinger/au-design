@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import styles from "../../landing.module.scss";
 import { Header, Footer, Breadcrumb } from "../../components";
 import { SITE_URL, TELEGRAM_URL, COMPANY_NAME, OG_IMAGE } from "../../lib/constants";
 import { getGuidePost, getAllGuideSlugs } from "../../lib/guidePosts";
@@ -49,11 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function GuidePostBody({ post }: { post: NonNullable<Awaited<ReturnType<typeof getGuidePost>>> }) {
   if (post.bodySections && post.bodySections.length > 0) {
     return (
-      <div className={styles.guidePostBody}>
+      <div className="guidePostBody">
         {post.bodySections.map((section, i) => (
-          <section key={i} className={styles.guidePostSection}>
-            <h2 className={styles.guidePostSectionTitle}>{section.title}</h2>
-            <div className={styles.guidePostSectionContent}>
+          <section key={i} className="guidePostSection">
+            <h2 className="guidePostSectionTitle">{section.title}</h2>
+            <div className="guidePostSectionContent">
               {section.content.split(/\n\n+/).map((para, j) => (
                 <p key={j}>{para.trim()}</p>
               ))}
@@ -64,7 +63,7 @@ function GuidePostBody({ post }: { post: NonNullable<Awaited<ReturnType<typeof g
     );
   }
   return (
-    <div className={styles.guidePostBody}>
+    <div className="guidePostBody">
       {post.body?.split(/\n\n+/).map((para, i) => (
         <p key={i}>{para.trim()}</p>
       ))}
@@ -122,7 +121,7 @@ export default async function GuidePostPage({ params }: Props) {
       : null;
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -138,9 +137,9 @@ export default async function GuidePostPage({ params }: Props) {
         />
       )}
       <Header />
-      <main className={`${styles.main} ${styles.mainGuide}`} id="main-content" aria-label={post.title}>
-        <article className={styles.guideArticle}>
-          <div className={styles.container}>
+      <main className="main mainGuide" id="main-content" aria-label={post.title}>
+        <article className="guideArticle">
+          <div className="container">
             <Breadcrumb
               items={[
                 { label: "홈", href: "/" },
@@ -148,26 +147,26 @@ export default async function GuidePostPage({ params }: Props) {
                 { label: post.title },
               ]}
             />
-            <h1 className={styles.guideArticleTitle}>
+            <h1 className="guideArticleTitle">
               {post.title}
             </h1>
-            <div className={styles.guideArticleBodyWrap}>
+            <div className="guideArticleBodyWrap">
               <GuidePostBody post={post} />
             </div>
-            <aside className={styles.guideArticleCtaBox} aria-label="제작 문의">
-              <p className={styles.guideArticleCta}>
+            <aside className="guideArticleCtaBox" aria-label="제작 문의">
+              <p className="guideArticleCta">
                 제작 문의·견적은{" "}
                 <a
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.guideArticleCtaButton}
+                  className="guideArticleCtaButton"
                 >
-                  텔레그램 @BroCPN
+                  텔레그램 @AUDesignlab
                 </a>
                 으로 연락해 주세요.
               </p>
-              <Link href="/guide" className={styles.guideArticleBackLink}>
+              <Link href="/guide" className="guideArticleBackLink">
                 ← 가이드 목록으로
               </Link>
             </aside>

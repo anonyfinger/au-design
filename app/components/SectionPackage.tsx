@@ -1,4 +1,3 @@
-import styles from "../landing.module.scss";
 import { TELEGRAM_URL, CTA_PRIMARY } from "../lib/constants";
 
 const PACKAGE_ITEMS = [
@@ -38,35 +37,35 @@ export default function SectionPackage() {
   return (
     <section
       id="package"
-      className={styles.section}
+      className="section"
       aria-labelledby="package-title"
     >
-      <div className={styles.container}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>패키지 구성</p>
-          <h2 id="package-title" className={styles.sectionTitle}>
+      <div className="container">
+        <div className="sectionHead">
+          <p className="sectionLabel">패키지 구성</p>
+          <h2 id="package-title" className="sectionTitle">
             총 8장 레이아웃
           </h2>
-          <p className={styles.sectionDesc}>
+          <p className="sectionDesc">
             오피가이드 배너제작·오피가이드 프로필 제작에 필요한 메인 프로필·업체 소개·가격표·출근부 등 8장 구성. 어디보다 완성도 높은 퀄리티로 제작해 드리며, 이 구성대로 진행하면 업소 브랜딩이 완성됩니다.
           </p>
         </div>
-        <div className={styles.packageGrid}>
-          {PACKAGE_ITEMS.map((item, i) => (
-            <article key={item.title} className={styles.packageCard}>
-              <span className={styles.packageNum}>{item.count}</span>
-              <h3 className={styles.packageTitle}>{item.title}</h3>
-              <p className={styles.packageDesc}>{item.desc}</p>
-              <p className={styles.packageEffect}>{item.effect}</p>
+        <div className="packageGrid">
+          {PACKAGE_ITEMS.map((item) => (
+            <article key={item.title} className="packageCard">
+              <span className="packageNum">{item.count}</span>
+              <h3 className="packageTitle">{item.title}</h3>
+              <p className="packageDesc">{item.desc}</p>
+              <p className="packageEffect">{item.effect}</p>
             </article>
           ))}
         </div>
-        <div className={styles.sectionCta}>
+        <div className="sectionCta">
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.telegramButton}
+            className="telegramButton"
             aria-label={`${CTA_PRIMARY} (텔레그램)`}
           >
             {CTA_PRIMARY}

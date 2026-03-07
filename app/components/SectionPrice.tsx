@@ -1,4 +1,3 @@
-import styles from "../landing.module.scss";
 import { TELEGRAM_URL, EVENT_LABEL, QUALITY_PROMISE, CTA_PRIMARY, CTA_PRIMARY_DESC } from "../lib/constants";
 
 const PRICE_ITEMS = [
@@ -33,64 +32,64 @@ export default function SectionPrice() {
   return (
     <section
       id="price"
-      className={styles.sectionAlt}
+      className="sectionAlt"
       aria-labelledby="price-title"
     >
-      <div className={styles.container}>
-        <div className={styles.priceEventBanner} role="status" aria-live="polite">
-          <span className={styles.priceEventLabel}>🔥 이번 달 한정 {EVENT_LABEL}</span>
-          <span className={styles.priceEventQuality}>{QUALITY_PROMISE}</span>
+      <div className="container">
+        <div className="priceEventBanner" role="status" aria-live="polite">
+          <span className="priceEventLabel">🔥 이번 달 한정 {EVENT_LABEL}</span>
+          <span className="priceEventQuality">{QUALITY_PROMISE}</span>
         </div>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>제작 타입 &amp; 가격</p>
-          <h2 id="price-title" className={styles.sectionTitle}>
+        <div className="sectionHead">
+          <p className="sectionLabel">제작 타입 &amp; 가격</p>
+          <h2 id="price-title" className="sectionTitle">
             투명한 가격 공개
           </h2>
-          <p className={styles.sectionDesc}>
+          <p className="sectionDesc">
             숨겨진 추가비 없이 투명하게 공개합니다. 스웨디시·유흥업소 등 업종별 맞춤 견적은
             텔레그램 문의 시 즉시 안내해 드립니다.
           </p>
         </div>
-        <div className={styles.priceGrid}>
+        <div className="priceGrid">
           {PRICE_ITEMS.map((item) => (
             <article
               key={item.type}
-              className={styles.priceCard}
+              className="priceCard"
               aria-label={`${item.type} 할인받고 제작하기`}
             >
-              <div className={styles.priceCardHead}>
-                <span className={styles.priceType}>{item.type}</span>
+              <div className="priceCardHead">
+                <span className="priceType">{item.type}</span>
                 {item.sub && (
-                  <span className={styles.priceSub}>{item.sub}</span>
+                  <span className="priceSub">{item.sub}</span>
                 )}
               </div>
-              <div className={styles.priceAmount} aria-label="가격">
-                <span className={styles.priceOriginal}>
+              <div className="priceAmount" aria-label="가격">
+                <span className="priceOriginal">
                   {formatPrice(item.originalPrice)}원
                 </span>
-                <span className={styles.priceSale}>
+                <span className="priceSale">
                   {formatPrice(item.salePrice)}원
                 </span>
               </div>
-              <p className={styles.priceDesc}>{item.desc}</p>
-              <div className={styles.priceCtaWrap}>
+              <p className="priceDesc">{item.desc}</p>
+              <div className="priceCtaWrap">
                 <a
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.priceCta}
+                  className="priceCta"
                   aria-label={`${item.type} ${CTA_PRIMARY} (텔레그램)`}
                 >
                   {CTA_PRIMARY}
                 </a>
-                <span className={styles.priceCtaDesc}>{CTA_PRIMARY_DESC}</span>
+                <span className="priceCtaDesc">{CTA_PRIMARY_DESC}</span>
               </div>
             </article>
           ))}
         </div>
-        <div className={styles.priceBenefits}>
-          <p className={styles.priceBenefitsTitle}>기본 제공 혜택</p>
-          <ul className={styles.priceBenefitsList}>
+        <div className="priceBenefits">
+          <p className="priceBenefitsTitle">기본 제공 혜택</p>
+          <ul className="priceBenefitsList">
             {BENEFITS.map((text) => (
               <li key={text}>{text}</li>
             ))}

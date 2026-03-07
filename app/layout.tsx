@@ -108,8 +108,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    creator: "@BroCPN",
-    site: "@BroCPN",
+    creator: "@AUDesignlab",
+    site: "@AUDesignlab",
     images: [OG_IMAGE.url],
   },
   referrer: "origin-when-cross-origin",
@@ -125,9 +125,9 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   category: "business",
 };

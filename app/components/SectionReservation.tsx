@@ -1,11 +1,10 @@
-import styles from "../landing.module.scss";
 import { TELEGRAM_URL, EVENT_LABEL, CTA_PRIMARY } from "../lib/constants";
 
 const STEPS = [
   {
     emoji: "💬",
     title: "텔레그램으로 문의",
-    desc: "@BroCPN으로 플랫폼·업종·수량을 보내 주시면 견적을 바로 안내해 드립니다.",
+    desc: "@AUDesignlab으로 플랫폼·업종·수량을 보내 주시면 견적을 바로 안내해 드립니다.",
     highlight: "평균 응답 시간 1시간 이내",
   },
   {
@@ -32,42 +31,42 @@ export default function SectionReservation() {
   return (
     <section
       id="reservation"
-      className={styles.section}
+      className="section"
       aria-labelledby="reservation-title"
     >
-      <div className={styles.container}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>제작 신청 절차</p>
-          <h2 id="reservation-title" className={styles.sectionTitle}>예약방법 안내</h2>
-          <p className={styles.sectionDesc}>
+      <div className="container">
+        <div className="sectionHead">
+          <p className="sectionLabel">제작 신청 절차</p>
+          <h2 id="reservation-title" className="sectionTitle">예약방법 안내</h2>
+          <p className="sectionDesc">
             배너 제작을 의뢰하시려면 아래 순서대로 진행해 주세요.
           </p>
         </div>
-        <ol className={styles.reservationStepList}>
-          {STEPS.map((step, i) => (
-            <li key={step.title} className={styles.reservationStepItem}>
-              <span className={styles.stepNum}>{step.emoji}</span>
-              <div className={styles.stepBody}>
-                <div className={styles.stepTitleRow}>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <span className={styles.stepHighlight}>{step.highlight}</span>
+        <ol className="reservationStepList">
+          {STEPS.map((step) => (
+            <li key={step.title} className="reservationStepItem">
+              <span className="stepNum">{step.emoji}</span>
+              <div className="stepBody">
+                <div className="stepTitleRow">
+                  <h3 className="stepTitle">{step.title}</h3>
+                  <span className="stepHighlight">{step.highlight}</span>
                 </div>
-                <p className={styles.stepDesc}>{step.desc}</p>
+                <p className="stepDesc">{step.desc}</p>
               </div>
             </li>
           ))}
         </ol>
-        <div className={styles.sectionCta}>
+        <div className="sectionCta">
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.telegramButton}
+            className="telegramButton"
             aria-label={`${CTA_PRIMARY} (텔레그램, 새 창)`}
           >
             {CTA_PRIMARY} →
           </a>
-          <p className={styles.reservationCtaNote}>텔레그램 @BroCPN · 평균 1시간 내 응답</p>
+          <p className="reservationCtaNote">텔레그램 @AUDesignlab · 평균 1시간 내 응답</p>
         </div>
       </div>
     </section>

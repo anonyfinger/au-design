@@ -1,4 +1,3 @@
-import styles from "../landing.module.scss";
 import { TELEGRAM_URL, CTA_PRIMARY } from "../lib/constants";
 
 const CUSTOM_ITEMS = [
@@ -11,32 +10,32 @@ export default function SectionCustom() {
   return (
     <section
       id="custom"
-      className={styles.section}
+      className="section"
       aria-labelledby="custom-title"
     >
-      <div className={styles.container}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>선택 가능</p>
-          <h2 id="custom-title" className={styles.sectionTitle}>
+      <div className="container">
+        <div className="sectionHead">
+          <p className="sectionLabel">선택 가능</p>
+          <h2 id="custom-title" className="sectionTitle">
             커스텀 서비스 항목
           </h2>
-          <p className={styles.sectionDesc}>
+          <p className="sectionDesc">
             업체별 특색에 맞춰 세부 항목을 정밀하게 조정해 드립니다.
           </p>
         </div>
-        <ul className={styles.customList}>
+        <ul className="customList">
           {CUSTOM_ITEMS.map((text) => (
-            <li key={text} className={styles.customItem}>
+            <li key={text} className="customItem">
               {text}
             </li>
           ))}
         </ul>
-        <div className={styles.sectionCta}>
+        <div className="sectionCta">
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.telegramButton}
+            className="telegramButton"
             aria-label={`${CTA_PRIMARY} (텔레그램)`}
           >
             {CTA_PRIMARY}

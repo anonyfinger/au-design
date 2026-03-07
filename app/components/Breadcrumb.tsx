@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "../landing.module.scss";
 
 export type BreadcrumbItem =
   | { label: string; href: string }
@@ -15,10 +14,10 @@ type Props = {
  */
 export default function Breadcrumb({ items }: Props) {
   return (
-    <nav className={styles.guideBreadcrumb} aria-label="breadcrumb">
+    <nav className="guideBreadcrumb" aria-label="breadcrumb">
       {items.map((item, i) => (
         <span key={i}>
-          {i > 0 && <span className={styles.guideBreadcrumbSep}>/</span>}
+          {i > 0 && <span className="guideBreadcrumbSep">/</span>}
           {item.href ? (
             <Link href={item.href}>{item.label}</Link>
           ) : (

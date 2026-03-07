@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import styles from "./landing.module.scss";
 import {
   Header,
   Footer,
@@ -51,9 +50,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <Header />
-      <main id="main-content" className={styles.main} aria-label="메인 콘텐츠">
+      <main id="main-content" className="main" aria-label="메인 콘텐츠">
         <Hero />
         <HeroPriceStrip />
         <SectionTrust />

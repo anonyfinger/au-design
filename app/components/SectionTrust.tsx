@@ -1,4 +1,4 @@
-import styles from "../landing.module.scss";
+import { COMPANY_NAME } from "../lib/constants";
 
 const STATS = [
   { num: "500+", label: "누적 제작 건수", sub: "오피가이드·오피스타 등 플랫폼" },
@@ -34,36 +34,36 @@ export default function SectionTrust() {
   return (
     <section
       id="trust"
-      className={styles.sectionTrust}
+      className="sectionTrust"
       aria-labelledby="trust-title"
     >
-      <div className={styles.container}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionLabel}>왜 에이유디자인인가</p>
-          <h2 id="trust-title" className={styles.sectionTitle}>
+      <div className="container">
+        <div className="sectionHead">
+          <p className="sectionLabel">왜 {COMPANY_NAME}인가</p>
+          <h2 id="trust-title" className="sectionTitle">
             실적이 증명하는 퀄리티
           </h2>
-          <p className={styles.sectionDesc}>
-            오피가이드 배너제작·프로필 제작 전문으로, 플랫폼 규격과 업소 컨셉에 맞춰 1:1로 제작합니다.
+          <p className="sectionDesc">
+            {COMPANY_NAME}은 오피가이드 배너제작·프로필 제작 전문으로, 플랫폼 규격과 업소 컨셉에 맞춰 1:1로 제작합니다.
           </p>
         </div>
 
-        <div className={styles.trustStats}>
+        <div className="trustStats">
           {STATS.map((s) => (
-            <div key={s.label} className={styles.trustStatItem}>
-              <span className={styles.trustStatNum}>{s.num}</span>
-              <span className={styles.trustStatLabel}>{s.label}</span>
-              <span className={styles.trustStatSub}>{s.sub}</span>
+            <div key={s.label} className="trustStatItem">
+              <span className="trustStatNum">{s.num}</span>
+              <span className="trustStatLabel">{s.label}</span>
+              <span className="trustStatSub">{s.sub}</span>
             </div>
           ))}
         </div>
 
-        <div className={styles.trustReasonGrid}>
+        <div className="trustReasonGrid">
           {REASONS.map((r) => (
-            <div key={r.title} className={styles.trustReasonCard}>
-              <span className={styles.trustReasonIcon}>{r.icon}</span>
-              <h3 className={styles.trustReasonTitle}>{r.title}</h3>
-              <p className={styles.trustReasonDesc}>{r.desc}</p>
+            <div key={r.title} className="trustReasonCard">
+              <span className="trustReasonIcon">{r.icon}</span>
+              <h3 className="trustReasonTitle">{r.title}</h3>
+              <p className="trustReasonDesc">{r.desc}</p>
             </div>
           ))}
         </div>
