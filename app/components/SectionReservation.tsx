@@ -1,4 +1,4 @@
-import { TELEGRAM_URL, EVENT_LABEL, CTA_PRIMARY } from "../lib/constants";
+import { TELEGRAM_URL, CTA_PRIMARY } from "../lib/constants";
 
 const STEPS = [
   {
@@ -9,9 +9,9 @@ const STEPS = [
   },
   {
     emoji: "📋",
-    title: "견적 확인 & 10만원 할인 적용",
-    desc: `${EVENT_LABEL} 적용 가격으로 안내해 드립니다. 코스와 구성을 함께 결정합니다.`,
-    highlight: "이번 달 한정 할인",
+    title: "견적 확인 & 구성 확정",
+    desc: "컷수·구성 기준으로 가격을 안내해 드립니다. 코스와 상세 구성을 함께 결정합니다.",
+    highlight: "맞춤 견적 안내",
   },
   {
     emoji: "🎨",

@@ -27,8 +27,8 @@ const PACKAGE_ITEMS = [
   },
   {
     title: "데일리 출근부",
-    count: "4장",
-    desc: "4일치 또는 4가지 타입의 템플릿 제공",
+    count: "3장",
+    desc: "3일치 또는 3가지 타입의 템플릿 제공",
     effect: "매일 업데이트하기 편한 구조로, 관리 효율성 증대",
   },
 ] as const;
@@ -44,10 +44,10 @@ export default function SectionPackage() {
         <div className="sectionHead">
           <p className="sectionLabel">패키지 구성</p>
           <h2 id="package-title" className="sectionTitle">
-            총 8장 레이아웃
+            기본 패키지 7컷 구성
           </h2>
           <p className="sectionDesc">
-            오피가이드 배너제작·오피가이드 프로필 제작에 필요한 메인 프로필·업체 소개·가격표·출근부 등 8장 구성. 어디보다 완성도 높은 퀄리티로 제작해 드리며, 이 구성대로 진행하면 업소 브랜딩이 완성됩니다.
+            오피가이드 배너제작·오피가이드 프로필 제작에 필요한 메인 프로필·업체 소개·가격표·출근부 등 기본 7컷 구성입니다. 이 구성으로 핵심 정보 전달과 브랜딩을 한 번에 완성할 수 있습니다.
           </p>
         </div>
         <div className="packageGrid">

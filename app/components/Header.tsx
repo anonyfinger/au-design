@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { TELEGRAM_URL } from "../lib/constants";
 
+const NAV_TABS = [
+  { label: "홈", href: "/" },
+  { label: "배너작업물", href: "/works" },
+  { label: "제작가격안내", href: "/#price" },
+] as const;
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -59,18 +65,11 @@ export default function Header() {
           </div>
         </div>
         <nav className="nav" aria-label="주요 메뉴">
-          <Link href="/works" className="navLink">
-            작업물
-          </Link>
-          <Link href="/guide" className="navLink">
-            배너 제작 가이드
-          </Link>
-          <Link href="/keywords" className="navLink">
-            키워드별 보기
-          </Link>
-          <Link href="/platforms" className="navLink">
-            배너·프로필 제작 플랫폼
-          </Link>
+          {NAV_TABS.map((tab) => (
+            <Link key={tab.label} href={tab.href} className="navLink categoryTabLink">
+              {tab.label}
+            </Link>
+          ))}
         </nav>
       </div>
 
@@ -95,18 +94,11 @@ export default function Header() {
             닫기
           </button>
           <nav className="navDrawerNav" aria-label="주요 메뉴">
-            <Link href="/works" className="navDrawerLink" onClick={closeMenu}>
-              작업물
-            </Link>
-            <Link href="/guide" className="navDrawerLink" onClick={closeMenu}>
-              배너 제작 가이드
-            </Link>
-            <Link href="/keywords" className="navDrawerLink" onClick={closeMenu}>
-              키워드별 보기
-            </Link>
-            <Link href="/platforms" className="navDrawerLink" onClick={closeMenu}>
-              배너·프로필 제작 플랫폼
-            </Link>
+            {NAV_TABS.map((tab) => (
+              <Link key={tab.label} href={tab.href} className="navDrawerLink" onClick={closeMenu}>
+                {tab.label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

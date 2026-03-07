@@ -1,4 +1,4 @@
-import { TELEGRAM_URL, EVENT_LABEL, CTA_PRIMARY, COMPANY_NAME, BRAND_SLUG } from "../lib/constants";
+import { TELEGRAM_URL, CTA_PRIMARY, COMPANY_NAME, BRAND_SLUG } from "../lib/constants";
 
 export default function Hero() {
   return (
@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="heroOverlay" aria-hidden="true" />
       <div className="heroInner">
         <div className="heroBadges">
-          <span className="heroBadgeEvent">{COMPANY_NAME} · 🔥 {EVENT_LABEL} 진행 중</span>
+          <span className="heroBadgeEvent">{COMPANY_NAME} · 배너·프로필 맞춤 제작</span>
           <span className="heroBadge">
             오피가이드 · 오피스타 · 퀸알바 · 부달 · 대밤
           </span>
@@ -36,7 +36,7 @@ export default function Hero() {
         <p className="heroBrandLine">{COMPANY_NAME}({BRAND_SLUG})이 플랫폼 규격에 맞춰 제작합니다.</p>
         <p className="heroDesc">
           오피가이드·오피스타·퀸알바 등 플랫폼 규격에 맞춘 메인 프로필·업체 소개·가격표·출근부
-          <strong> 8장 패키지</strong>를 <strong>10만원 할인</strong>에 제공합니다.
+          <strong> 7컷 기본 패키지</strong>로 제공합니다.
           디자인 하나로 업소 이미지가 달라집니다.
         </p>
         <div className="heroSocialProof">
@@ -57,11 +57,11 @@ export default function Hero() {
             {CTA_PRIMARY} →
           </a>
           <a href="#price" className="heroCtaSecondary">
-            할인가 · 패키지 보기
+            가격 · 패키지 보기
           </a>
         </div>
         <p className="heroUrgency">
-          ⏰ 이번 달 한정 10만원 할인 · 지금 문의하시면 견적 즉시 안내
+          지금 문의하시면 견적 즉시 안내
         </p>
       </div>
     </section>

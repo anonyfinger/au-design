@@ -162,10 +162,10 @@ export default function JsonLd() {
       },
       {
         "@type": "Question",
-        name: "10만원 할인 이벤트와 퀄리티는 어떤가요?",
+        name: "제작 퀄리티와 가격 안내는 어떻게 되나요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "에이유디자인은 10만원 할인 이벤트를 진행 중이며, 어디보다 완성도 높은 퀄리티로 배너·프로필을 제작해 드립니다. 견적 문의 시 할인 적용 가격을 안내해 드리니 텔레그램 @AUDesignlab으로 문의해 주세요.",
+          text: "에이유디자인은 어디보다 완성도 높은 퀄리티로 배너·프로필을 제작해 드립니다. 컷수 기준으로 가격을 안내해 드리니 텔레그램 @AUDesignlab으로 문의해 주세요.",
         },
       },
     ],
@@ -187,7 +187,7 @@ export default function JsonLd() {
         "@type": "HowToStep",
         position: 2,
         name: "코스 선택 및 견적 확인",
-        text: "기본/맞춤/대량 할인 등 코스를 선택하면 가격·제작 기간을 안내받습니다. 10만원 할인 이벤트 적용 시 더 유리한 가격으로 안내합니다.",
+        text: "컷수와 구성 기준을 선택하면 가격·제작 기간을 안내받습니다.",
       },
       {
         "@type": "HowToStep",

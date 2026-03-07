@@ -1,12 +1,6 @@
-import Link from "next/link";
 import { Header, Footer, WorkImage, Breadcrumb } from "../components";
 import { TELEGRAM_URL, SITE_URL, OG_IMAGE } from "../lib/constants";
 import { WORKS } from "../lib/works";
-
-/** 가로 배너를 먼저, 나머지는 원래 순서 — 다단 레이아웃에서 빈칸 최소화 */
-const WORKS_ORDERED = [...WORKS].sort((a, b) =>
-  "wide" in b && b.wide ? 1 : "wide" in a && a.wide ? -1 : 0
-);
 
 export const metadata = {
   title: "작업물 · 제작 사례",
@@ -54,18 +48,15 @@ export default function WorksPage() {
         <section className="section" aria-labelledby="works-page-title">
           <div className="container">
             <h2 id="works-page-title" className="sectionTitle">
-              작업물 갤러리
+              배너 작업물 갤러리
             </h2>
             <ul className="worksPageGrid" aria-label="제작 사례 갤러리">
-              {WORKS_ORDERED.map((work, index) => (
-                <li
-                  key={work.src}
-                  className={"wide" in work && work.wide ? "worksPageCard worksPageCardWide" : "worksPageCard"}
-                >
+              {WORKS.map((work, index) => (
+                <li key={work.src} className="worksPageCard">
                   <WorkImage
                     src={work.src}
                     alt={work.alt}
-                    wide={"wide" in work && work.wide}
+                    wide={false}
                     priority={index < 2}
                   />
                 </li>

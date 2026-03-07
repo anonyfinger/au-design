@@ -3,8 +3,8 @@ import { COMPANY_NAME } from "../lib/constants";
 const STATS = [
   { num: "500+", label: "누적 제작 건수", sub: "오피가이드·오피스타 등 플랫폼" },
   { num: "98%", label: "고객 만족률", sub: "재의뢰·추천 기반" },
-  { num: "10만원", label: "이벤트 할인", sub: "현재 진행 중" },
-  { num: "8장", label: "기본 패키지 구성", sub: "프로필·소개·가격표·출근부" },
+  { num: "1시간", label: "평균 응답 시간", sub: "문의 접수 후 빠른 안내" },
+  { num: "7컷", label: "기본 패키지 구성", sub: "메인·소개·주요 안내 중심" },
 ] as const;
 
 const REASONS = [

@@ -1,12 +1,12 @@
 
-import { TELEGRAM_URL, TELEGRAM_ID, EVENT_LABEL, QUALITY_PROMISE, CTA_PRIMARY, COMPANY_NAME } from "../lib/constants";
+import { TELEGRAM_URL, TELEGRAM_ID, QUALITY_PROMISE, CTA_PRIMARY, COMPANY_NAME } from "../lib/constants";
 
 export default function CtaBlock() {
   return (
     <section id="cta" className="ctaBlock" aria-labelledby="cta-title">
-      <div className="ctaBlockBadge">🔥 {EVENT_LABEL} · 이번 달 한정</div>
+      <div className="ctaBlockBadge">맞춤 제작 상담 진행 중</div>
       <h2 id="cta-title" className="ctaBlockTitle">
-        지금 문의하면<br />할인가로 바로 시작됩니다
+        지금 문의하면<br />바로 제작 상담됩니다
       </h2>
       <p className="ctaBlockQuality">{COMPANY_NAME}은 {QUALITY_PROMISE}</p>
       <p className="ctaBlockDesc">

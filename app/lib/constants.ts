@@ -17,17 +17,15 @@ export const SITE_NAME =
   "에이유디자인 | 오피가이드 배너제작·오피가이드 프로필 제작·오피스타 퀸알바 배너";
 /** 메타 설명: 155자 이내 권장 (검색 스니펫 절단 방지) */
 export const SITE_DESCRIPTION =
-  "에이유디자인(au-designlab) 오피가이드 배너제작·프로필 제작 전문. 오피스타·퀸알바·부달·대밤 등 플랫폼 규격 맞춤 8장 패키지, 10만원 할인. 견적·시안 문의 텔레그램 @AUDesignlab.";
+  "에이유디자인(au-designlab) 오피가이드 배너제작·프로필 제작 전문. 오피스타·퀸알바·부달·대밤 등 플랫폼 규격 맞춤 구성으로 안내합니다. 견적·시안 문의 텔레그램 @AUDesignlab.";
 
 /** 프로모션·퀄리티 메시지 (랜딩·CTA 통일) */
-export const EVENT_DISCOUNT = "10만원";
-export const EVENT_LABEL = "10만원 할인 이벤트";
 export const QUALITY_PROMISE =
   "어디보다 완성도 높은 퀄리티로 제작해 드립니다.";
 
 /** 메인 CTA 문구 — 전환 통일 */
-export const CTA_PRIMARY = "지금 할인받고 제작하기";
-export const CTA_PRIMARY_DESC = "텔레그램으로 바로 연결 · 할인가 적용";
+export const CTA_PRIMARY = "지금 제작 문의하기";
+export const CTA_PRIMARY_DESC = "텔레그램으로 바로 연결 · 맞춤 안내";
 
 /** OG 이미지: 상대 경로 (metadataBase와 조합해 절대 URL 생성) */
 export const OG_IMAGE_PATH = "/sns-img.png";

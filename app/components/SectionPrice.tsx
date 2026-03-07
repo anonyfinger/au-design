@@ -1,19 +1,20 @@
-import { TELEGRAM_URL, EVENT_LABEL, QUALITY_PROMISE, CTA_PRIMARY, CTA_PRIMARY_DESC } from "../lib/constants";
+import { TELEGRAM_URL, QUALITY_PROMISE, CTA_PRIMARY, CTA_PRIMARY_DESC } from "../lib/constants";
 
 const PRICE_ITEMS = [
   {
-    type: "이미지형",
-    sub: "정적 디자인",
-    originalPrice: 350000,
-    salePrice: 250000,
-    desc: "깔끔하고 선명한 고해상도 디자인. 게시·공유에 최적화된 정적 배너를 어디보다 완성도 높은 퀄리티로 제작해 드립니다.",
+    type: "7컷",
+    salePrice: 180000,
+    desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · 이벤트",
   },
   {
-    type: "애니메이션형",
-    sub: "모션 디자인",
-    originalPrice: 450000,
+    type: "10컷",
+    salePrice: 260000,
+    desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · QA · 소개2 · 이벤트",
+  },
+  {
+    type: "14컷",
     salePrice: 350000,
-    desc: "시선을 끄는 모션 그래픽. 스토리·릴스·커뮤니티 홍보 시 압도적인 주목도를 높여 드립니다.",
+    desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · QA · 소개2 · 추천 · 기타 · 이벤트",
   },
 ] as const;
 
@@ -37,16 +38,15 @@ export default function SectionPrice() {
     >
       <div className="container">
         <div className="priceEventBanner" role="status" aria-live="polite">
-          <span className="priceEventLabel">🔥 이번 달 한정 {EVENT_LABEL}</span>
           <span className="priceEventQuality">{QUALITY_PROMISE}</span>
         </div>
         <div className="sectionHead">
-          <p className="sectionLabel">제작 타입 &amp; 가격</p>
+          <p className="sectionLabel">컷수별 제작가격</p>
           <h2 id="price-title" className="sectionTitle">
             투명한 가격 공개
           </h2>
           <p className="sectionDesc">
-            숨겨진 추가비 없이 투명하게 공개합니다. 스웨디시·유흥업소 등 업종별 맞춤 견적은
+            전달해주신 구성 기준의 가격입니다. 상세 항목은 업종·구성에 맞게 조정 가능하며,
             텔레그램 문의 시 즉시 안내해 드립니다.
           </p>
         </div>
@@ -55,18 +55,12 @@ export default function SectionPrice() {
             <article
               key={item.type}
               className="priceCard"
-              aria-label={`${item.type} 할인받고 제작하기`}
+              aria-label={`${item.type} 제작 문의하기`}
             >
               <div className="priceCardHead">
                 <span className="priceType">{item.type}</span>
-                {item.sub && (
-                  <span className="priceSub">{item.sub}</span>
-                )}
               </div>
               <div className="priceAmount" aria-label="가격">
-                <span className="priceOriginal">
-                  {formatPrice(item.originalPrice)}원
-                </span>
                 <span className="priceSale">
                   {formatPrice(item.salePrice)}원
                 </span>
@@ -78,7 +72,7 @@ export default function SectionPrice() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="priceCta"
-                  aria-label={`${item.type} ${CTA_PRIMARY} (텔레그램)`}
+                  aria-label={`${item.type} 제작 ${CTA_PRIMARY} (텔레그램)`}
                 >
                   {CTA_PRIMARY}
                 </a>
@@ -94,6 +88,15 @@ export default function SectionPrice() {
               <li key={text}>{text}</li>
             ))}
           </ul>
+        </div>
+        <div className="priceCutGuide" aria-label="컷수 안내">
+          <p className="priceCutGuideHead">◀ 한컷 기준 세로 800PX</p>
+          <div className="priceCutGuideBody">
+            <p>한컷의 기준은 800PX 입니다. 주대안내나 기타내용 멘트 길이에 따라 2컷분량이 나올 수 있습니다.</p>
+            <p className="priceCutGuideEmphasis">7컷은 유선문의 정도가 가장 이상적입니다.</p>
+            <p className="priceCutGuideEmphasis">노래방, 다국적, 기타 주대안내가 중요하지 않은 업종</p>
+            <p>디테일 있게 안내가 필요하면 10컷 이상을 추천드립니다.</p>
+          </div>
         </div>
       </div>
     </section>
