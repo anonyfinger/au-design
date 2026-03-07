@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header, Footer, Breadcrumb } from "../../components";
-import { SITE_URL, TELEGRAM_URL, COMPANY_NAME, OG_IMAGE } from "../../lib/constants";
-import { getGuidePost, getAllGuideSlugs } from "../../lib/guidePosts";
+import { SITE_URL, TELEGRAM_URL, COMPANY_NAME, OG_IMAGE, BRAND_SLUG } from "../../lib/constants";
+import { getGuidePost, getAllGuideSlugs, getOrderedGuidePosts } from "../../lib/guidePosts";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,13 +18,14 @@ export const dynamicParams = true;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getGuidePost(slug);
-  if (!post) return { title: "가이드" };
+  if (!post) return { title: "가이드 | 에이유디자인" };
   const canonicalUrl = `${SITE_URL}/guide/${post.slug}`;
   return {
     title: post.title,
     description: post.description,
     keywords: [
       post.title,
+      "오피가이드 배너제작",
       "배너 제작",
       "프로필 제작",
       "맞춤형 배너",
@@ -32,16 +33,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "시안 제공",
       "견적 문의",
       COMPANY_NAME,
+      BRAND_SLUG,
     ],
     openGraph: {
       url: canonicalUrl,
       title: `${post.title} | 에이유디자인`,
       description: post.description,
       type: "article",
-      images: [OG_IMAGE],
+      locale: "ko_KR",
+      images: [
+        {
+          ...OG_IMAGE,
+          alt: `${post.title} | 에이유디자인`,
+        },
+      ],
+      publishedTime: post.createdAt,
+      modifiedTime: new Date().toISOString(),
     },
     alternates: { canonical: canonicalUrl },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
   };
 }
 
@@ -76,22 +91,27 @@ export default async function GuidePostPage({ params }: Props) {
   const post = getGuidePost(slug);
   if (!post) notFound();
 
+  const relatedPosts = getOrderedGuidePosts()
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 5);
+
   const articleUrl = `${SITE_URL}/guide/${post.slug}`;
-  const logoUrl = `${SITE_URL}/globe.svg`;
+  const ogImageUrl = `${SITE_URL}${OG_IMAGE.url}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
-    image: logoUrl,
-    author: { "@type": "Organization", name: COMPANY_NAME },
+    image: { "@type": "ImageObject", url: ogImageUrl, width: OG_IMAGE.width, height: OG_IMAGE.height },
+    author: { "@type": "Organization", name: COMPANY_NAME, url: SITE_URL },
     publisher: {
       "@type": "Organization",
       name: COMPANY_NAME,
-      logo: { "@type": "ImageObject", url: logoUrl, width: 512, height: 512 },
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.ico`, width: 48, height: 48 },
     },
     datePublished: post.createdAt,
-    dateModified: post.createdAt,
+    dateModified: new Date().toISOString(),
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
     url: articleUrl,
     inLanguage: "ko",
@@ -170,6 +190,27 @@ export default async function GuidePostPage({ params }: Props) {
                 ← 가이드 목록으로
               </Link>
             </aside>
+
+            {relatedPosts.length > 0 && (
+              <nav className="guideRelated" aria-labelledby="related-guides-title">
+                <h2 id="related-guides-title" className="guideRelatedTitle">
+                  다른 플랫폼 배너 제작 가이드
+                </h2>
+                <ul className="guideRelatedList">
+                  {relatedPosts.map((related) => (
+                    <li key={related.slug} className="guideRelatedItem">
+                      <Link href={`/guide/${related.slug}`} className="guideRelatedLink">
+                        <span className="guideRelatedLinkTitle">{related.title}</span>
+                        <span className="guideRelatedLinkDesc">{related.description}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/platforms" className="guideRelatedMoreLink">
+                  지원 플랫폼 전체 보기 →
+                </Link>
+              </nav>
+            )}
           </div>
         </article>
       </main>

@@ -8,7 +8,6 @@ import {
   SectionPackage,
   SectionPrice,
   SectionCustom,
-  SectionWorks,
   SectionNotice,
   SectionReservation,
   SectionManager,
@@ -40,10 +39,21 @@ export const metadata: Metadata = {
     "플랫폼 규격 배너",
   ],
   openGraph: {
+    type: "website",
+    locale: "ko_KR",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
+    siteName: "에이유디자인",
     images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    creator: "@AUDesignlab",
+    site: "@AUDesignlab",
+    images: [OG_IMAGE.url],
   },
   alternates: { canonical: SITE_URL },
 };
@@ -58,7 +68,6 @@ export default function Home() {
         <SectionTrust />
         <SectionPrice />
         <SectionPackage />
-        <SectionWorks />
         <SectionReservation />
         <SectionNotice />
         <SectionCustom />

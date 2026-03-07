@@ -8,15 +8,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const guideEntries: MetadataRoute.Sitemap = guideSlugs.map((slug) => ({
     url: `${SITE_URL}/guide/${encodeURIComponent(slug)}`,
     lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
   }));
 
   return [
     {
       url: SITE_URL,
       lastModified: now,
-      changeFrequency: "weekly" as const,
+      changeFrequency: "daily" as const,
       priority: 1,
     },
     {
@@ -26,22 +26,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/works`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
       url: `${SITE_URL}/guide`,
       lastModified: now,
       changeFrequency: "weekly" as const,
-      priority: 0.88,
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/keywords`,
       lastModified: now,
       changeFrequency: "weekly" as const,
-      priority: 0.87,
+      priority: 0.85,
     },
     ...guideEntries,
   ];

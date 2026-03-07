@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   applicationName: COMPANY_NAME,
   title: {
     default: title,
-    template: `%s | ${SITE_NAME}`,
+    template: `%s | ${COMPANY_NAME}`,
   },
   description,
   keywords,
@@ -116,9 +116,15 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
     googleBot: {
       index: true,
       follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
     },
   },
   alternates: {

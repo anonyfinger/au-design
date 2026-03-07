@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Header, Footer, Breadcrumb } from "../components";
 import { TELEGRAM_URL, SITE_URL, OG_IMAGE } from "../lib/constants";
 import { PLATFORM_LIST } from "../lib/platforms";
+import { getOrderedGuidePosts } from "../lib/guidePosts";
 
 export const metadata = {
-  title: "배너·프로필 제작 플랫폼 안내",
+  title: "배너·프로필 제작 가능 플랫폼 목록",
   description:
-    "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타, 오피뷰, 외로운밤, 오피아트, 오피스북, 밤공유, 부달, 대밤, 마사지퀸, 퀸알바 등 홍보·지역 플랫폼 배너·프로필 맞춤 제작. 규격 1:1 제작. 텔레그램 @AUDesignlab.",
+    "오피가이드·오피스타·오피뷰·외로운밤·오피아트·오피스북·밤공유·부달·대밤·마사지퀸·퀸알바·인천달리기·부산달리기 등 홍보·지역 플랫폼 배너·프로필 맞춤 제작. 플랫폼 규격 1:1 제작. 텔레그램 @AUDesignlab.",
   keywords: [
     "오피가이드 배너제작",
     "오피가이드 배너 제작",
@@ -27,25 +28,30 @@ export const metadata = {
     "에이유디자인",
     "플랫폼 규격 배너",
     "등록용 배너 제작",
+    "홍보 플랫폼 배너",
   ],
   openGraph: {
+    type: "website",
+    locale: "ko_KR",
     url: `${SITE_URL}/platforms`,
-    title: "배너·프로필 제작 플랫폼 안내",
+    title: "배너·프로필 제작 가능 플랫폼 목록 | 에이유디자인",
     description:
-      "오피가이드 배너제작·오피가이드 배너 제작 가능 플랫폼. 오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 맞춤 제작. 텔레그램 @AUDesignlab.",
+      "오피가이드·오피스타·오피뷰·퀸알바 등 플랫폼별 배너·프로필 맞춤 제작. 규격에 맞는 1:1 제작. 텔레그램 @AUDesignlab.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/platforms` },
 };
 
 export default function PlatformsPage() {
+  const guidePosts = getOrderedGuidePosts();
+
   return (
     <div className="wrapper">
       <Header />
       <main id="main-content" className="main" aria-label="배너·프로필 제작 플랫폼 안내">
         <section className="platformPageHero" aria-labelledby="platforms-page-title">
           <div className="container">
-            <Breadcrumb items={[{ label: "홈", href: "/" }, { label: "배너·프로필 제작 플랫폼" }]} />
+            <Breadcrumb items={[{ label: "홈", href: "/" }, { label: "지원 플랫폼" }]} />
             <h1 id="platforms-page-title" className="platformPageLead">
               홍보를 맡기려면 <strong>배너·프로필이 필요합니다.</strong>
               <br />
@@ -87,6 +93,15 @@ export default function PlatformsPage() {
                   {item.region && (
                     <span className="platformRegion">{item.region}</span>
                   )}
+                  {item.guideSlug && (
+                    <Link
+                      href={`/guide/${item.guideSlug}`}
+                      className="platformGuideLink"
+                      aria-label={`${item.name} 배너 제작 가이드 보기`}
+                    >
+                      가이드 보기 →
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -100,6 +115,28 @@ export default function PlatformsPage() {
                 맞춤 견적 문의하기 (텔레그램)
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* 플랫폼별 SEO 가이드 목록 */}
+        <section className="section" aria-labelledby="platforms-guide-title">
+          <div className="container">
+            <h2 id="platforms-guide-title" className="sectionTitle">
+              플랫폼별 배너 제작 가이드
+            </h2>
+            <p className="sectionDesc">
+              오피가이드 배너제작·오피스타 배너제작 등 플랫폼별 규격·제작 방법을 정리했습니다.
+            </p>
+            <ul className="platformGuideList" aria-label="플랫폼별 배너 제작 가이드 목록">
+              {guidePosts.map((post) => (
+                <li key={post.slug} className="platformGuideItem">
+                  <Link href={`/guide/${post.slug}`} className="platformGuideItemLink">
+                    <span className="platformGuideItemTitle">{post.title}</span>
+                    <span className="platformGuideItemDesc">{post.description}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>

@@ -4,9 +4,9 @@ import { SITE_URL, OG_IMAGE } from "../lib/constants";
 import { getGuidePostsByCategory } from "../lib/guidePosts";
 
 export const metadata = {
-  title: "키워드별 보기 · 배너·프로필 제작",
+  title: "플랫폼·지역별 배너 제작 키워드 목록",
   description:
-    "오피가이드 배너제작·오피가이드 배너 제작 키워드. 오피스타, 퀸알바, 오피뷰, 외로운밤, 오피아트, 오피스북, 밤공유, 대밤, 마사지퀸, 인천달리기, 부산달리기 등 플랫폼별·지역별 배너·프로필 제작 키워드 목록. 에이유디자인.",
+    "오피가이드·오피스타·퀸알바·오피뷰·외로운밤·오피아트·오피스북·밤공유·대밤·마사지퀸·인천달리기·부산달리기 플랫폼·지역별 배너·프로필 제작 가이드 목록. 에이유디자인.",
   keywords: [
     "오피가이드 배너제작",
     "오피가이드 배너 제작",
@@ -22,10 +22,12 @@ export const metadata = {
     "에이유디자인",
   ],
   openGraph: {
+    type: "website",
+    locale: "ko_KR",
     url: `${SITE_URL}/keywords`,
-    title: "키워드별 보기 · 오피가이드 배너제작 등 | 에이유디자인",
+    title: "플랫폼·지역별 배너 제작 키워드 목록 | 에이유디자인",
     description:
-      "오피가이드 배너제작·오피가이드 배너 제작 키워드. 오피스타, 퀸알바, 인천달리기, 부산달리기 등 플랫폼별·지역별 배너·프로필 제작 키워드 목록. 텔레그램 @AUDesignlab.",
+      "오피가이드·오피스타·퀸알바·인천달리기·부산달리기 등 플랫폼별·지역별 배너·프로필 제작 가이드. 텔레그램 @AUDesignlab.",
     images: [OG_IMAGE],
   },
   alternates: { canonical: `${SITE_URL}/keywords` },

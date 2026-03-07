@@ -40,9 +40,36 @@ export default function JsonLd() {
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     sameAs: [TELEGRAM_URL],
-    image: `${SITE_URL}/favicon.png`,
-    priceRange: "₩250,000–₩450,000",
+    image: `${SITE_URL}/sns-img.png`,
+    priceRange: "₩180,000–₩350,000",
     areaServed: { "@type": "Country", name: "대한민국" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "컷수별 배너 제작 가격",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          name: "7컷 배너 패키지",
+          price: "180000",
+          priceCurrency: "KRW",
+          description: "7컷 구성 기본 패키지 (세로 800px 기준)",
+        },
+        {
+          "@type": "Offer",
+          name: "10컷 배너 패키지",
+          price: "260000",
+          priceCurrency: "KRW",
+          description: "10컷 구성 패키지 (세로 800px 기준)",
+        },
+        {
+          "@type": "Offer",
+          name: "14컷 배너 패키지",
+          price: "350000",
+          priceCurrency: "KRW",
+          description: "14컷 구성 패키지 (세로 800px 기준)",
+        },
+      ],
+    },
     knowsAbout: [
       "오피가이드 배너제작",
       "오피가이드 배너 제작",
@@ -99,6 +126,29 @@ export default function JsonLd() {
     provider: { "@id": organizationId },
     areaServed: { "@type": "Country", name: "대한민국" },
     serviceType: "홍보·지역 플랫폼용 배너 제작·프로필 제작·맞춤 디자인",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "7컷 배너 제작",
+        price: "180000",
+        priceCurrency: "KRW",
+        url: `${SITE_URL}/#price`,
+      },
+      {
+        "@type": "Offer",
+        name: "10컷 배너 제작",
+        price: "260000",
+        priceCurrency: "KRW",
+        url: `${SITE_URL}/#price`,
+      },
+      {
+        "@type": "Offer",
+        name: "14컷 배너 제작",
+        price: "350000",
+        priceCurrency: "KRW",
+        url: `${SITE_URL}/#price`,
+      },
+    ],
   };
 
   const website = {
@@ -111,12 +161,19 @@ export default function JsonLd() {
     description: SITE_DESCRIPTION,
     inLanguage: "ko",
     publisher: { "@id": organizationId },
-    potentialAction: {
-      "@type": "ContactAction",
-      name: "텔레그램으로 배너·프로필 제작 문의",
-      target: TELEGRAM_URL,
-      contactMethod: "https://schema.org/InstantMessaging",
-    },
+    potentialAction: [
+      {
+        "@type": "ContactAction",
+        name: "텔레그램으로 배너·프로필 제작 문의",
+        target: TELEGRAM_URL,
+        contactMethod: "https://schema.org/InstantMessaging",
+      },
+      {
+        "@type": "ViewAction",
+        name: "배너 작업물 보기",
+        target: `${SITE_URL}/works`,
+      },
+    ],
   };
 
   const breadcrumbHome = {
