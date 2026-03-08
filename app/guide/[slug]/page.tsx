@@ -97,15 +97,27 @@ export default async function GuidePostPage({ params }: Props) {
 
   const articleUrl = `${SITE_URL}/guide/${post.slug}`;
   const ogImageUrl = `${SITE_URL}${OG_IMAGE.url}`;
+  const orgId = `${SITE_URL}/#organization`;
+
+  const rawText = post.bodySections
+    ? post.bodySections.map((s) => s.title + " " + s.content).join(" ")
+    : post.body ?? "";
+  const wordCount = Math.round(rawText.replace(/\s+/g, "").length / 2);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": articleUrl,
     headline: post.title,
     description: post.description,
+    keywords: [post.title, "배너 제작", "프로필 제작", "플랫폼 규격 배너", COMPANY_NAME],
+    about: { "@type": "Thing", name: post.title },
+    wordCount,
     image: { "@type": "ImageObject", url: ogImageUrl, width: OG_IMAGE.width, height: OG_IMAGE.height },
-    author: { "@type": "Organization", name: COMPANY_NAME, url: SITE_URL },
+    author: { "@type": "Organization", "@id": orgId, name: COMPANY_NAME, url: SITE_URL },
     publisher: {
       "@type": "Organization",
+      "@id": orgId,
       name: COMPANY_NAME,
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.ico`, width: 48, height: 48 },
@@ -113,6 +125,7 @@ export default async function GuidePostPage({ params }: Props) {
     datePublished: post.createdAt,
     dateModified: new Date().toISOString(),
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    isPartOf: { "@type": "CollectionPage", "@id": `${SITE_URL}/guide` },
     url: articleUrl,
     inLanguage: "ko",
   };

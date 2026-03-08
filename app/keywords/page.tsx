@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Header, Footer, Breadcrumb } from "../components";
-import { SITE_URL, OG_IMAGE } from "../lib/constants";
+import { SITE_URL, OG_IMAGE, COMPANY_NAME } from "../lib/constants";
 import { getGuidePostsByCategory } from "../lib/guidePosts";
 
 export const metadata = {
@@ -40,9 +40,70 @@ const CATEGORY_LABELS: Record<"platform" | "region", string> = {
 
 export default function KeywordsPage() {
   const { platform, region } = getGuidePostsByCategory();
+  const allPosts = [...platform, ...region];
+
+  const platformListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/keywords#platform-list`,
+    name: "플랫폼별 배너·프로필 제작 가이드",
+    url: `${SITE_URL}/keywords`,
+    numberOfItems: platform.length,
+    itemListElement: platform.map((post, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE_URL}/guide/${post.slug}`,
+      name: post.title,
+    })),
+  };
+
+  const regionListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/keywords#region-list`,
+    name: "지역별 배너·프로필 제작 가이드",
+    url: `${SITE_URL}/keywords`,
+    numberOfItems: region.length,
+    itemListElement: region.map((post, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE_URL}/guide/${post.slug}`,
+      name: post.title,
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "홈", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "키워드별 보기", item: `${SITE_URL}/keywords` },
+    ],
+  };
+
+  const collectionPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/keywords`,
+    name: "플랫폼·지역별 배너 제작 키워드 목록",
+    description: "오피가이드·오피스타·오피매니아·밤의전쟁·알밤·건마존·퀸알바·인천달리기·부산달리기 플랫폼·지역별 배너·프로필 제작 가이드 목록. 에이유디자인.",
+    url: `${SITE_URL}/keywords`,
+    inLanguage: "ko",
+    isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
+    publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: COMPANY_NAME },
+    numberOfItems: allPosts.length,
+    mainEntity: [
+      { "@id": `${SITE_URL}/keywords#platform-list` },
+      { "@id": `${SITE_URL}/keywords#region-list` },
+    ],
+  };
 
   return (
     <div className="wrapper">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(platformListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(regionListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }} />
       <Header />
       <main id="main-content" className="main" aria-label="키워드별 보기">
         <section className="platformPageHero" aria-labelledby="keywords-page-title">
