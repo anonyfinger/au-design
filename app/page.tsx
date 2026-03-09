@@ -14,7 +14,6 @@ import {
   CtaBlock,
   SectionSeoIntro,
   FloatingCta,
-  SectionAddons,
   SectionPromoSite,
 } from "./components";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, OG_IMAGE } from "./lib/constants";
@@ -69,12 +68,11 @@ export default function Home() {
         <HeroPriceStrip />
         <SectionTrust />
         <SectionPrice />
+        <SectionPromoSite />
         <SectionPackage />
         <SectionReservation />
         <SectionNotice />
         <SectionCustom />
-        <SectionAddons />
-        <SectionPromoSite />
         <SectionManager />
         <CtaBlock />
         <SectionSeoIntro />

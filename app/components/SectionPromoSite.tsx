@@ -1,37 +1,38 @@
 import { TELEGRAM_URL, CTA_PRIMARY } from "../lib/constants";
+import { hl } from "../lib/highlight";
 
 const PROMO_FEATURES = [
   {
     icon: "📱",
     title: "모바일 최적화 디자인",
-    desc: "스마트폰에서 완벽하게 보이는 반응형 레이아웃. 업소 이미지·코스·가격을 한눈에 전달합니다.",
+    desc: "스마트폰에서 완벽하게 보이는 **반응형 레이아웃**. 업소 이미지·코스·가격을 **한눈에 전달**합니다.",
   },
   {
     icon: "🔍",
     title: "구글·네이버 검색 노출",
-    desc: "SEO 최적화 설정으로 '[지역] [업종]' 검색 시 업소 전용 사이트가 검색 결과에 노출됩니다.",
+    desc: "SEO 최적화 설정으로 '[지역] [업종]' 검색 시 업소 전용 사이트가 **검색 결과에 노출**됩니다.",
   },
   {
     icon: "💬",
     title: "텔레그램 예약 연동",
-    desc: "사이트 방문 고객이 텔레그램으로 바로 예약·문의할 수 있도록 CTA 버튼을 연결합니다.",
+    desc: "사이트 방문 고객이 텔레그램으로 **바로 예약·문의**할 수 있도록 CTA 버튼을 연결합니다.",
   },
   {
     icon: "🗂️",
     title: "업소 정보 풀 구성",
-    desc: "업소 소개·코스·가격표·실장님 소개·이용 안내·오시는 길 등 필요한 섹션을 모두 구성합니다.",
+    desc: "업소 소개·코스·가격표·실장님 소개·이용 안내·오시는 길 등 **필요한 섹션을 모두** 구성합니다.",
   },
   {
     icon: "🌐",
     title: "전용 도메인 연결",
-    desc: "업소 이름에 맞는 도메인을 사용해 브랜드 신뢰도를 높이고 고객이 직접 접속할 수 있습니다.",
+    desc: "업소 이름에 맞는 도메인을 사용해 **브랜드 신뢰도**를 높이고 고객이 직접 접속할 수 있습니다.",
   },
   {
     icon: "📊",
     title: "방문자 분석 설정",
-    desc: "Google Analytics 연동으로 방문자 수·유입 경로를 파악해 마케팅 전략 수립에 활용할 수 있습니다.",
+    desc: "Google Analytics 연동으로 **방문자 수·유입 경로**를 파악해 마케팅 전략 수립에 활용할 수 있습니다.",
   },
-] as const;
+];
 
 const PROMO_STEPS = [
   { step: "01", label: "업소 정보 전달", desc: "코스·가격·소개·이미지 등 기본 정보를 텔레그램으로 전달" },
@@ -66,7 +67,7 @@ export default function SectionPromoSite() {
             <article key={item.title} className="promoSiteCard">
               <span className="promoSiteIcon">{item.icon}</span>
               <h3 className="promoSiteTitle">{item.title}</h3>
-              <p className="promoSiteDesc">{item.desc}</p>
+              <p className="promoSiteDesc">{hl(item.desc)}</p>
             </article>
           ))}
         </div>
@@ -78,7 +79,7 @@ export default function SectionPromoSite() {
               <li key={s.step} className="promoSiteStepItem">
                 <span className="promoSiteStepNum">{s.step}</span>
                 <div className="promoSiteStepContent">
-                  <strong className="promoSiteStepLabel">{s.label}</strong>
+                  <strong className="promoSiteStepLabel emWarm">{s.label}</strong>
                   <span className="promoSiteStepDesc">{s.desc}</span>
                 </div>
               </li>
