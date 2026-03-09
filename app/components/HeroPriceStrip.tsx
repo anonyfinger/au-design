@@ -11,7 +11,7 @@ export default function HeroPriceStrip() {
       <div className="heroPriceStripInner">
         <div className="heroPriceStripContent">
           <span className="heroPriceStripText">
-            <strong>7컷 18만원</strong> · <strong>10컷 26만원</strong> · <strong>14컷 35만원</strong>
+            <strong>7컷 25만원</strong> · <strong>10컷 35만원</strong> · <strong>14컷 45만원</strong>
           </span>
         </div>
         <a

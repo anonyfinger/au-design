@@ -3,17 +3,17 @@ import { TELEGRAM_URL, QUALITY_PROMISE, CTA_PRIMARY, CTA_PRIMARY_DESC } from "..
 const PRICE_ITEMS = [
   {
     type: "7컷",
-    salePrice: 180000,
+    salePrice: 250000,
     desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · 이벤트",
   },
   {
     type: "10컷",
-    salePrice: 260000,
+    salePrice: 350000,
     desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · QA · 소개2 · 이벤트",
   },
   {
     type: "14컷",
-    salePrice: 350000,
+    salePrice: 450000,
     desc: "메인 · 상호 주소 영업시간 · 연락처 · 인사말 · 주대 · 소개 · QA · 소개2 · 추천 · 기타 · 이벤트",
   },
 ] as const;
@@ -27,6 +27,8 @@ const BENEFITS = [
   "플랫폼 규격 맞춤 사이즈 최적화 제공",
   "만족할 때까지 수정 반영",
   "추가 비용 없는 투명한 견적",
+  "마사지초이스 업체 배너 1개월 무료 게재",
+  "구글 이미지 검색 노출 지원",
 ] as const;
 
 export default function SectionPrice() {
