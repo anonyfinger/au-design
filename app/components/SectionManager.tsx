@@ -14,12 +14,12 @@ export default function SectionContact() {
             문의하기
           </h2>
           <p className="sectionDesc">
-            어디보다 완성도 높은 퀄리티로 제작해 드립니다. 문의 주시면 시안 제공 및 상담을 해드리며, 배너 제작 문의·견적·예약은 텔레그램으로 보내 주세요.
+            어디보다 <strong className="emWarm">완성도 높은 퀄리티</strong>로 제작해 드립니다. 문의 주시면 시안 제공 및 상담을 해드리며, 배너 제작 문의·견적·예약은 텔레그램으로 보내 주세요.
           </p>
         </div>
         <div className="contactCard">
           <p className="contactDesc">
-            배너 제작 견적·코스·시안 문의는 텔레그램으로 보내 주시면 빠르게 답변해 드립니다.
+            배너 제작 견적·코스·시안 문의는 텔레그램으로 보내 주시면 <span className="emWarm">빠르게</span> 답변해 드립니다.
           </p>
           <p className="contactId">
             텔레그램 ID: <strong>@{TELEGRAM_ID}</strong>

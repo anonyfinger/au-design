@@ -48,8 +48,8 @@ export default function SectionSeoIntro() {
           </p>
           <p>
             오피가이드 배너제작은 플랫폼 규격에 맞춘 메인 프로필·업체 소개·가격표·출근부 구성으로 진행하며,
-            오피스타·퀸알바·오피뷰 등 타 플랫폼 배너·프로필 제작도 함께 의뢰 가능합니다.
-            견적·시안 문의는 텔레그램 @{TELEGRAM_ID}으로 부담 없이 연락해 주세요.
+            오피스타·퀸알바·오피뷰 등 타 플랫폼 배너·프로필 제작도 <strong>함께 의뢰 가능</strong>합니다.
+            견적·시안 문의는 텔레그램 <strong className="emWarm">@{TELEGRAM_ID}</strong>으로 <strong>부담 없이</strong> 연락해 주세요.
             지원 플랫폼 전체 목록은{" "}
             <Link href="/platforms" className="sectionSeoIntroLink">지원 플랫폼 페이지</Link>에서 확인할 수 있습니다.
           </p>

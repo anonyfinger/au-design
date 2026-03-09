@@ -1,4 +1,5 @@
 import { COMPANY_NAME } from "../lib/constants";
+import { hl } from "../lib/highlight";
 
 const STATS = [
   { num: "500+", label: "누적 제작 건수", sub: "오피가이드·오피스타 등 플랫폼" },
@@ -11,24 +12,24 @@ const REASONS = [
   {
     icon: "🎯",
     title: "플랫폼 규격 100% 맞춤",
-    desc: "오피가이드·오피스타·퀸알바 등 각 플랫폼 권장 사이즈·해상도에 최적화된 파일로 납품합니다.",
+    desc: "오피가이드·오피스타·퀸알바 등 각 플랫폼 권장 사이즈·해상도에 **최적화된 파일**로 납품합니다.",
   },
   {
     icon: "⚡",
     title: "빠른 시안 제공",
-    desc: "문의 후 빠른 시일 내에 시안을 제공해 드립니다. 수정은 만족할 때까지 반영합니다.",
+    desc: "문의 후 빠른 시일 내에 시안을 제공해 드립니다. 수정은 **만족할 때까지** 반영합니다.",
   },
   {
     icon: "💎",
     title: "고퀄리티 보장",
-    desc: "어디서도 보기 힘든 완성도. 업소 이미지를 한 단계 올려주는 브랜딩 디자인을 제공합니다.",
+    desc: "**어디서도 보기 힘든 완성도**. 업소 이미지를 한 단계 올려주는 브랜딩 디자인을 제공합니다.",
   },
   {
     icon: "🔒",
     title: "1:1 맞춤 제작",
-    desc: "템플릿 재활용 없이 업소별 컨셉·지역·타겟에 맞춘 전용 디자인으로 진행합니다.",
+    desc: "**템플릿 재활용 없이** 업소별 컨셉·지역·타겟에 맞춘 **전용 디자인**으로 진행합니다.",
   },
-] as const;
+];
 
 export default function SectionTrust() {
   return (
@@ -63,7 +64,7 @@ export default function SectionTrust() {
             <div key={r.title} className="trustReasonCard">
               <span className="trustReasonIcon">{r.icon}</span>
               <h3 className="trustReasonTitle">{r.title}</h3>
-              <p className="trustReasonDesc">{r.desc}</p>
+              <p className="trustReasonDesc">{hl(r.desc)}</p>
             </div>
           ))}
         </div>

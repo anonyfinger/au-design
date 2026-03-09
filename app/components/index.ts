@@ -13,3 +13,5 @@ export { default as SectionManager } from "./SectionManager";
 export { default as CtaBlock } from "./CtaBlock";
 export { default as SectionSeoIntro } from "./SectionSeoIntro";
 export { default as Breadcrumb } from "./Breadcrumb";
+export { default as SectionAddons } from "./SectionAddons";
+export { default as SectionPromoSite } from "./SectionPromoSite";

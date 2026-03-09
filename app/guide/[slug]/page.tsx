@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Header, Footer, Breadcrumb } from "../../components";
 import { SITE_URL, TELEGRAM_URL, COMPANY_NAME, OG_IMAGE, BRAND_SLUG } from "../../lib/constants";
 import { getGuidePost, getAllGuideSlugs, getOrderedGuidePosts } from "../../lib/guidePosts";
+import { autoHl } from "../../lib/highlight";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -60,6 +61,52 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Q./A. 패턴 단락을 감지해 강조 렌더링, 일반 단락은 \n을 <br>로 */
+function renderParagraph(text: string, key: number) {
+  const trimmed = text.trim();
+  const lines = trimmed.split("\n").map((l) => l.trim()).filter(Boolean);
+
+  // Q./A. 패턴 감지: 첫 줄이 "Q."로 시작하거나 lines 중 Q./A.가 있으면 Q&A 블록으로 렌더링
+  const hasQA = lines.some((l) => l.startsWith("Q.") || l.startsWith("A."));
+
+  if (hasQA) {
+    const pairs: { q: string; a: string }[] = [];
+    let currentQ = "";
+    for (const line of lines) {
+      if (line.startsWith("Q.")) {
+        currentQ = line;
+      } else if (line.startsWith("A.") && currentQ) {
+        pairs.push({ q: currentQ, a: line });
+        currentQ = "";
+      }
+    }
+    if (pairs.length > 0) {
+      return (
+        <>
+          {pairs.map((pair, pi) => (
+            <div key={`${key}-qa-${pi}`} className="guideQaBlock">
+              <span className="guideQaQuestion">{autoHl(pair.q)}</span>
+              <span className="guideQaAnswer">{autoHl(pair.a)}</span>
+            </div>
+          ))}
+        </>
+      );
+    }
+  }
+
+  // 일반 단락: \n을 <br>로 처리, autoHl로 핵심 키워드 강조
+  return (
+    <p key={key}>
+      {lines.map((line, li) => (
+        <span key={li}>
+          {autoHl(line)}
+          {li < lines.length - 1 && <br />}
+        </span>
+      ))}
+    </p>
+  );
+}
+
 function GuidePostBody({ post }: { post: NonNullable<Awaited<ReturnType<typeof getGuidePost>>> }) {
   if (post.bodySections && post.bodySections.length > 0) {
     return (
@@ -68,9 +115,9 @@ function GuidePostBody({ post }: { post: NonNullable<Awaited<ReturnType<typeof g
           <section key={i} className="guidePostSection">
             <h2 className="guidePostSectionTitle">{section.title}</h2>
             <div className="guidePostSectionContent">
-              {section.content.split(/\n\n+/).map((para, j) => (
-                <p key={j}>{para.trim()}</p>
-              ))}
+              {section.content.split(/\n\n+/).map((para, j) =>
+                renderParagraph(para, j)
+              )}
             </div>
           </section>
         ))}
@@ -79,9 +126,7 @@ function GuidePostBody({ post }: { post: NonNullable<Awaited<ReturnType<typeof g
   }
   return (
     <div className="guidePostBody">
-      {post.body?.split(/\n\n+/).map((para, i) => (
-        <p key={i}>{para.trim()}</p>
-      ))}
+      {post.body?.split(/\n\n+/).map((para, i) => renderParagraph(para, i))}
     </div>
   );
 }

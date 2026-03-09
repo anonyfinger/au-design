@@ -1,3 +1,4 @@
+import React from "react";
 import { TELEGRAM_URL, QUALITY_PROMISE, CTA_PRIMARY, CTA_PRIMARY_DESC } from "../lib/constants";
 
 const PRICE_ITEMS = [
@@ -22,14 +23,12 @@ function formatPrice(n: number) {
   return n.toLocaleString("ko-KR");
 }
 
-const BENEFITS = [
-  "고해상도 최종본 즉시 사용 가능",
-  "플랫폼 규격 맞춤 사이즈 최적화 제공",
-  "만족할 때까지 수정 반영",
-  "추가 비용 없는 투명한 견적",
-  "마사지초이스 업체 배너 1개월 무료 게재",
-  "구글 이미지 검색 노출 지원",
-] as const;
+const BENEFITS: React.ReactNode[] = [
+  <><strong className="emWarm">고해상도</strong> 최종본 즉시 사용 가능</>,
+  <>플랫폼 규격 맞춤 <strong className="emWarm">사이즈 최적화</strong> 제공</>,
+  <><span className="emWarm">만족할 때까지</span> 수정 반영</>,
+  <>마사지초이스 업체 배너 <span className="emWarm">1개월 무료 게재</span></>,
+];
 
 export default function SectionPrice() {
   return (
@@ -49,7 +48,7 @@ export default function SectionPrice() {
           </h2>
           <p className="sectionDesc">
             전달해주신 구성 기준의 가격입니다. 상세 항목은 업종·구성에 맞게 조정 가능하며,
-            텔레그램 문의 시 즉시 안내해 드립니다.
+            텔레그램 문의 시 <span className="emWarm">즉시</span> 안내해 드립니다.
           </p>
         </div>
         <div className="priceGrid">
@@ -86,15 +85,15 @@ export default function SectionPrice() {
         <div className="priceBenefits">
           <p className="priceBenefitsTitle">기본 제공 혜택</p>
           <ul className="priceBenefitsList">
-            {BENEFITS.map((text) => (
-              <li key={text}>{text}</li>
+            {BENEFITS.map((node, i) => (
+              <li key={i}>{node}</li>
             ))}
           </ul>
         </div>
         <div className="priceCutGuide" aria-label="컷수 안내">
           <p className="priceCutGuideHead">◀ 한컷 기준 세로 800PX</p>
           <div className="priceCutGuideBody">
-            <p>한컷의 기준은 800PX 입니다. 주대안내나 기타내용 멘트 길이에 따라 2컷분량이 나올 수 있습니다.</p>
+            <p>한컷의 기준은 <span className="emWarm">800PX</span> 입니다. 주대안내나 기타내용 멘트 길이에 따라 2컷분량이 나올 수 있습니다.</p>
             <p className="priceCutGuideEmphasis">7컷은 유선문의 정도가 가장 이상적입니다.</p>
             <p className="priceCutGuideEmphasis">노래방, 다국적, 기타 주대안내가 중요하지 않은 업종</p>
             <p>디테일 있게 안내가 필요하면 10컷 이상을 추천드립니다.</p>

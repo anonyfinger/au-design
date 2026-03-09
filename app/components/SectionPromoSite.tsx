@@ -54,8 +54,10 @@ export default function SectionPromoSite() {
             업소 단독 홍보 사이트 제작
           </h2>
           <p className="sectionDesc">
-            플랫폼 등록에 그치지 않고, 업소만의 전용 홍보 사이트를 구축해 드립니다.
-            구글·네이버 검색 노출 + 텔레그램 예약 연동으로 독립적인 마케팅 채널을 확보하세요.
+            플랫폼 등록에 그치지 않고, 업소만의 전용 홍보 사이트를 구축해 드립니다.{" "}
+            <strong className="emWarm">구글·네이버 검색 노출</strong> +{" "}
+            <strong className="emWarm">텔레그램 예약 연동</strong>으로{" "}
+            <span className="emWarm">독립적인 마케팅 채널</span>을 확보하세요.
           </p>
         </div>
 
@@ -86,7 +88,7 @@ export default function SectionPromoSite() {
 
         <div className="promoSiteCta">
           <p className="promoSiteCtaNote">
-            견적은 사이트 구성 규모에 따라 다릅니다. 텔레그램으로 업소 정보를 알려주시면 맞춤 견적을 안내해 드립니다.
+            견적은 사이트 구성 규모에 따라 다릅니다. 텔레그램으로 업소 정보를 알려주시면 <span className="emWarm">맞춤 견적</span>을 안내해 드립니다.
           </p>
           <a
             href={TELEGRAM_URL}
