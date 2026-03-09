@@ -5,18 +5,20 @@ import {
   Hero,
   HeroPriceStrip,
   SectionTrust,
-  SectionPackage,
   SectionPrice,
   SectionCustom,
   SectionNotice,
-  SectionReservation,
-  SectionManager,
   CtaBlock,
-  SectionSeoIntro,
   FloatingCta,
   SectionPromoSite,
+  ScrollReveal,
 } from "./components";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, OG_IMAGE } from "./lib/constants";
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  OG_IMAGE,
+} from "./lib/constants";
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -67,15 +69,24 @@ export default function Home() {
         <Hero />
         <HeroPriceStrip />
         <SectionTrust />
-        <SectionPrice />
-        <SectionPromoSite />
-        <SectionPackage />
-        <SectionReservation />
-        <SectionNotice />
-        <SectionCustom />
-        <SectionManager />
-        <CtaBlock />
-        <SectionSeoIntro />
+        <ScrollReveal variant="left">
+          <SectionPrice />
+        </ScrollReveal>
+        <ScrollReveal variant="right">
+          <SectionPromoSite />
+        </ScrollReveal>
+
+        <ScrollReveal variant="left">
+          <SectionNotice />
+        </ScrollReveal>
+        <ScrollReveal variant="right">
+          <SectionCustom />
+        </ScrollReveal>
+
+        <ScrollReveal variant="up">
+          <CtaBlock />
+        </ScrollReveal>
+      
       </main>
       <FloatingCta />
       <Footer />

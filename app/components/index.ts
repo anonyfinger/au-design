@@ -16,3 +16,4 @@ export { default as Breadcrumb } from "./Breadcrumb";
 export { default as SectionAddons } from "./SectionAddons";
 export { default as SectionPromoSite } from "./SectionPromoSite";
 export { default as WorkImage } from "./WorkImage";
+export { default as ScrollReveal } from "./ScrollReveal";

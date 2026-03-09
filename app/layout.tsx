@@ -6,14 +6,13 @@ import JsonLd from "./components/JsonLd";
 
 const naemojin = localFont({
   src: [
-    { path: "../fonts/210 네모진OTF 010.otf", weight: "100" },
-    { path: "../fonts/210 네모진OTF 020.otf", weight: "300" },
-    { path: "../fonts/210 네모진OTF 030.otf", weight: "400" },
-    { path: "../fonts/210 네모진OTF 040.otf", weight: "500" },
-    { path: "../fonts/210 네모진OTF 050.otf", weight: "700" },
+    { path: "../fonts/naemojin-400.woff2", weight: "400" },
+    { path: "../fonts/naemojin-500.woff2", weight: "500" },
+    { path: "../fonts/naemojin-700.woff2", weight: "700" },
   ],
   variable: "--font-naemojin",
   display: "swap",
+  preload: true,
 });
 
 const title = SITE_NAME;
