@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import React, { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header, Footer, Breadcrumb } from "../../components";
@@ -82,14 +83,14 @@ function renderParagraph(text: string, key: number) {
     }
     if (pairs.length > 0) {
       return (
-        <>
+        <Fragment key={key}>
           {pairs.map((pair, pi) => (
             <div key={`${key}-qa-${pi}`} className="guideQaBlock">
               <span className="guideQaQuestion">{autoHl(pair.q)}</span>
               <span className="guideQaAnswer">{autoHl(pair.a)}</span>
             </div>
           ))}
-        </>
+        </Fragment>
       );
     }
   }
