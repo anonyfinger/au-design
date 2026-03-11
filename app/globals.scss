@@ -43,7 +43,7 @@
   --accent-muted: rgba(13, 148, 136, 0.18);
   --accent-border: rgba(13, 148, 136, 0.35);
 
-  /* ── 포인트 컬러 — 앰버 ── */
+  /* ── 포인트 컬러 — 앰버 (틸과 조화, 강조용) ── */
   --accent-warm: #d97706;
   --accent-warm-hover: #b45309;
 
@@ -430,13 +430,19 @@ body {
 // 틸 bold — 긍정적 약속·서비스 키워드 강조
 .em {
   font-weight: 700;
-  color: var(--accent);
+  color: #0d9488;
 }
 
-// 앰버 bold — 수치·무료 혜택·핵심 전환 문구 강조
+// 앰버 bold — 수치·무료 혜택·핵심 전환 문구 (틸과 조화, 자연스럽게 눈에 띄게)
 .emWarm {
   font-weight: 700;
-  color: var(--accent-warm);
+  color: #d97706;
+}
+
+// 핵심 문구 강조 (틸 톤, 자연스러운 대비)
+.emAccent {
+  font-weight: 700;
+  color: #0d9488;
 }
 
 // ============================================
@@ -1317,30 +1323,49 @@ $section-padding-y-lg: 5rem;
   animation: gradientShift 18s ease-in-out infinite;
 }
 
-.trustStats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
-
-  @media (min-width: $breakpoint-tablet) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+.sectionTrust .sectionHead {
+  .sectionDesc {
+    word-break: keep-all;
   }
 }
 
-.trustStatItem {
+.sectionTrustSocialProof {
+  font-size: 1rem;
+  color: var(--muted-strong);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.trustMarketingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  align-items: stretch;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.trustMarketingCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 1.5rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--duration-normal) var(--ease-out-smooth), transform var(--duration-normal) var(--ease-out-expo);
+  min-height: 100px;
+  background: linear-gradient(145deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 4px 16px rgba(13, 148, 136, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--duration-normal) var(--ease-out-smooth), transform var(--duration-normal) var(--ease-out-smooth), border-color var(--duration-normal) var(--ease-out-smooth);
   animation: fadeInUp 0.6s var(--ease-out-expo) both;
 
   &:nth-child(1) { animation-delay: 0.05s; }
@@ -1349,36 +1374,39 @@ $section-padding-y-lg: 5rem;
   &:nth-child(4) { animation-delay: 0.2s; }
 
   &:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+    box-shadow:
+      0 8px 24px rgba(13, 148, 136, 0.3),
+      0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.35);
   }
 }
 
-.trustStatNum {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
-
-.trustStatLabel {
-  font-size: 0.875rem;
+.trustMarketingHeadline {
+  display: block;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   font-weight: 700;
-  color: var(--foreground);
-  margin-bottom: 0.25rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  word-break: keep-all;
 }
 
-.trustStatSub {
-  font-size: 0.75rem;
-  color: var(--muted);
+.trustMarketingSub {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
 }
 
 .trustReasonGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
+  align-items: stretch;
 
   @media (min-width: $breakpoint-tablet) {
     grid-template-columns: repeat(2, 1fr);
@@ -1391,37 +1419,53 @@ $section-padding-y-lg: 5rem;
 }
 
 .trustReasonCard {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  min-height: 180px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--duration-normal) var(--ease-out-smooth), transform var(--duration-normal) var(--ease-out-expo);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.06);
+  transition: box-shadow var(--duration-normal) var(--ease-out-smooth), transform var(--duration-normal) var(--ease-out-smooth), border-color var(--duration-normal) var(--ease-out-smooth);
 
   &:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
   }
 }
 
 .trustReasonIcon {
-  display: block;
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.75rem;
+  margin-bottom: 0.875rem;
+  flex-shrink: 0;
 }
 
 .trustReasonTitle {
   font-size: 1rem;
   font-weight: 700;
   color: var(--foreground);
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .trustReasonDesc {
   font-size: 0.875rem;
   color: var(--muted-strong);
   line-height: 1.65;
+  margin: 0;
+  text-align: center;
+  flex: 1;
 }
 
 // --------------------------------------------
@@ -2856,6 +2900,40 @@ $section-padding-y-lg: 5rem;
   line-height: 1.35;
 }
 
+.ctaBlockPainPointWrap {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(244, 114, 182, 0.5);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 24px rgba(244, 114, 182, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBlockPainPoint {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+
+  .emWarm {
+    color: #fbbf24;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+  }
+}
+
+.ctaBlockPainPointCta {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(1.25rem, 2.8vw, 1.5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
 .ctaBlockBadge {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -3946,7 +4024,7 @@ $section-padding-y-lg: 5rem;
   .ctaBlockButton:hover,
   .footerLink:hover,
   .platformCard:hover,
-  .trustStatItem:hover,
+  .trustMarketingCard:hover,
   .trustReasonCard:hover,
   .addonCard:hover,
   .promoSiteCard:hover {

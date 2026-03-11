@@ -37,14 +37,14 @@ export default function Hero() {
         <p className="heroDesc">
           오피가이드·오피스타·퀸알바 등 플랫폼 규격에 맞춘 메인 프로필·업체 소개·가격표·출근부
           <strong> 7컷 기본 패키지</strong>로 제공합니다.
-          디자인 하나로 업소 이미지가 달라집니다.
+          목록에서 스크롤 멈추는 비주얼로 업소 이미지를 바꿔 드립니다.
         </p>
         <div className="heroSocialProof">
-          <span className="heroSocialProofItem">✓ 누적 500건+ 제작</span>
+          <span className="heroSocialProofItem">✓ 시안 먼저 확인 후 결정</span>
           <span className="heroSocialProofDivider">·</span>
-          <span className="heroSocialProofItem">✓ 고객 만족률 98%</span>
+          <span className="heroSocialProofItem">✓ 마음에 안 들면 부담 없이 취소</span>
           <span className="heroSocialProofDivider">·</span>
-          <span className="heroSocialProofItem">✓ 시안 먼저 확인</span>
+          <span className="heroSocialProofItem">✓ 규격 걱정 없이 맡기시면 끝</span>
         </div>
         <div className="heroActions">
           <a

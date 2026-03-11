@@ -1,33 +1,33 @@
 import { COMPANY_NAME } from "../lib/constants";
 import { hl } from "../lib/highlight";
 
-const STATS = [
-  { num: "500+", label: "누적 제작 건수", sub: "오피가이드·오피스타 등 플랫폼" },
-  { num: "98%", label: "고객 만족률", sub: "재의뢰·추천 기반" },
-  { num: "1시간", label: "평균 응답 시간", sub: "문의 접수 후 빠른 안내" },
-  { num: "7컷", label: "기본 패키지 구성", sub: "메인·소개·주요 안내 중심" },
+const MARKETING_COPIES = [
+  { headline: "목록 1페이지에 먼저", sub: "클릭·문의가 달라집니다" },
+  { headline: "우리만의 디자인", sub: "업소 전용 맞춤" },
+  { headline: "시안 보고 맡기세요", sub: "마음에 안 들면 안 해도 됩니다" },
+  { headline: "규격 걱정 없이", sub: "맡기시면 끝입니다" },
 ] as const;
 
 const REASONS = [
   {
     icon: "🎯",
-    title: "플랫폼 규격 100% 맞춤",
-    desc: "오피가이드·오피스타·퀸알바 등 각 플랫폼 권장 사이즈·해상도에 **최적화된 파일**로 납품합니다.",
+    title: "목록에서 잘리지 않게",
+    desc: "오피가이드·오피스타·퀸알바 등 각 플랫폼 권장 사이즈에 맞춰 제작합니다. 업로드 시 잘림·깨짐 없이 **그대로 노출**됩니다.",
   },
   {
     icon: "⚡",
-    title: "빠른 시안 제공",
-    desc: "문의 후 빠른 시일 내에 시안을 제공해 드립니다. 수정은 **만족할 때까지** 반영합니다.",
+    title: "시안 보고 결정",
+    desc: "문의 후 빠르게 시안을 보내 드립니다. 마음에 들면 진행, 아니면 **부담 없이** 취소 가능합니다.",
   },
   {
     icon: "💎",
-    title: "고퀄리티 보장",
-    desc: "**어디서도 보기 힘든 완성도**. 업소 이미지를 한 단계 올려주는 브랜딩 디자인을 제공합니다.",
+    title: "경쟁 업소보다 눈에 띄게",
+    desc: "목록에서 스크롤 멈추는 비주얼. **같은 업소도** 배너에 따라 클릭률이 달라집니다.",
   },
   {
     icon: "🔒",
-    title: "1:1 맞춤 제작",
-    desc: "**템플릿 재활용 없이** 업소별 컨셉·지역·타겟에 맞춘 **전용 디자인**으로 진행합니다.",
+    title: "우리 업소만의 톤",
+    desc: "템플릿 복붙이 아닌, 사장님 업소의 컨셉·지역·타겟에 맞춘 **전용 디자인**입니다.",
   },
 ];
 
@@ -40,21 +40,23 @@ export default function SectionTrust() {
     >
       <div className="container">
         <div className="sectionHead">
-          <p className="sectionLabel">왜 {COMPANY_NAME}인가</p>
+          <p className="sectionLabel">사장님·실장님이 선택하는 이유</p>
           <h2 id="trust-title" className="sectionTitle">
-            실적이 증명하는 퀄리티
+            목록에서 먼저 보이면, 예약이 먼저 옵니다
           </h2>
           <p className="sectionDesc">
-            {COMPANY_NAME}은 오피가이드 배너제작·프로필 제작 전문으로, 플랫폼 규격과 업소 컨셉에 맞춰 1:1로 제작합니다.
+            오피가이드·퀸알바 목록에서 경쟁 업소에 밀리고 있나요? 같은 업소라도 비주얼이 다르면 <strong className="emWarm">클릭과 문의가 달라집니다</strong>. {COMPANY_NAME}은 사장님 업소만의 톤으로 1:1 맞춤 제작합니다.
+          </p>
+          <p className="sectionTrustSocialProof">
+            이미 많은 <strong className="emWarm">사장님, 실장님</strong>이 이용 중입니다.
           </p>
         </div>
 
-        <div className="trustStats">
-          {STATS.map((s) => (
-            <div key={s.label} className="trustStatItem">
-              <span className="trustStatNum">{s.num}</span>
-              <span className="trustStatLabel">{s.label}</span>
-              <span className="trustStatSub">{s.sub}</span>
+        <div className="trustMarketingGrid">
+          {MARKETING_COPIES.map((m) => (
+            <div key={m.headline} className="trustMarketingCard">
+              <span className="trustMarketingHeadline">{m.headline}</span>
+              <span className="trustMarketingSub">{m.sub}</span>
             </div>
           ))}
         </div>
