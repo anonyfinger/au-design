@@ -43,7 +43,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/#price" className="footerLink">
-                가격 안내
+                견적 문의
               </Link>
             </li>
             <li>

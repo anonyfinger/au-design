@@ -8,7 +8,7 @@ import { TELEGRAM_URL } from "../lib/constants";
 const NAV_TABS = [
   { label: "홈", href: "/" },
   { label: "지원 플랫폼", href: "/platforms" },
-  { label: "제작가격안내", href: "/#price" },
+  { label: "견적 문의", href: "/#price" },
 ] as const;
 
 export default function Header() {

@@ -1771,99 +1771,152 @@ $section-padding-y-lg: 5rem;
 }
 
 // --------------------------------------------
-// 가격 안내 — 카드 강조·CTA 버튼
+// 가격 안내 — 통합 카드 (컷수별 구성 + 단일 CTA)
 // --------------------------------------------
-.priceGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
-  max-width: 720px;
-  margin: 0 auto;
-
-  @media (min-width: $breakpoint-tablet) {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: none;
-    gap: 2.25rem;
-    align-items: stretch;
-  }
-
-  @media (min-width: $breakpoint-desktop) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.priceCard {
+.priceCardUnified {
   position: relative;
   overflow: hidden;
-  padding: 1.75rem 1.5rem 2rem;
+  padding: 0;
   background: var(--surface);
-  border: 2px solid var(--border);
+  border: 2px solid var(--accent-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(13, 148, 136, 0.06);
+  max-width: 640px;
+  margin: 0 auto;
   transition:
     box-shadow var(--duration-normal) var(--ease-out-smooth),
-    border-color var(--duration-normal) var(--ease-out-smooth),
-    transform var(--duration-normal) var(--ease-out-expo);
+    border-color var(--duration-normal) var(--ease-out-smooth);
   animation: fadeInUp 0.6s var(--ease-out-expo) both;
 
-  &:nth-child(1) {
-    animation-delay: 0.1s;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      background: linear-gradient(90deg, var(--foreground), #0f766e, #0d9488);
-      background-size: 200% 100%;
-      animation: gradientFlow 5s ease infinite;
-    }
-  }
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      background: linear-gradient(90deg, #0f766e, #0d9488, #14b8a6);
-      background-size: 200% 100%;
-      animation: gradientFlow 5s ease infinite 0.8s;
-    }
-  }
-  &:nth-child(3) {
-    animation-delay: 0.3s;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      background: linear-gradient(90deg, #0d9488, #14b8a6, #2dd4bf);
-      background-size: 200% 100%;
-      animation: gradientFlow 5s ease infinite 1.4s;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: linear-gradient(90deg, var(--foreground), #0f766e, #0d9488, #14b8a6);
+    background-size: 200% 100%;
+    animation: gradientFlow 5s ease infinite;
   }
 
   &:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent-border);
-    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(13, 148, 136, 0.1);
+    border-color: var(--accent);
   }
 }
 
-.priceCardHead {
-  margin-bottom: 1rem;
+.priceCardUnifiedBadge {
+  display: inline-block;
+  margin: 1rem 1.5rem 0;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+}
+
+.priceCardUnifiedInner {
+  padding: 1.25rem 1.5rem 1.5rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 1.5rem 2rem 1.75rem;
+  }
+}
+
+.priceCutRow {
+  text-align: left;
+
+  &:last-child .priceCutRowDivider {
+    display: none;
+  }
+
+  &.priceCutRowFeatured {
+    padding: 1rem 1.25rem;
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(20, 184, 166, 0.05) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(13, 148, 136, 0.25);
+  }
+}
+
+.priceCutRowHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.priceCutBadge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  color: var(--surface);
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.priceCutRowItems {
+  font-size: 0.9375rem;
+  color: var(--foreground);
+  font-weight: 500;
+  line-height: 1.65;
+  margin: 0 0 0.35rem;
+}
+
+.priceCutRowTip {
+  font-size: 0.875rem;
+  color: var(--muted-strong);
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.priceCutRowDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.priceCardUnified .priceCtaWrap {
+  padding: 1.25rem 1.5rem 1.75rem;
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.12) 100%);
+  border-top: 2px solid var(--accent-border);
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 1.5rem 2rem 2rem;
+  }
+}
+
+.priceCtaUrgency {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+
+  strong {
+    color: var(--foreground);
+  }
+}
+
+.priceCtaAccent {
+  background: var(--gradient-accent) !important;
+  color: var(--surface) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25) !important;
+
+  &:hover {
+    background: var(--gradient-accent-hover) !important;
+    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35) !important;
+  }
 }
 
 .priceType {
@@ -1885,54 +1938,6 @@ $section-padding-y-lg: 5rem;
   font-size: 0.75rem;
   color: var(--muted);
   margin-bottom: 0;
-}
-
-.priceAmount {
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.5rem 0.75rem;
-  flex-wrap: wrap;
-}
-
-.priceOriginal {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-decoration: line-through;
-  letter-spacing: -0.02em;
-}
-
-.priceSale {
-  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
-  font-weight: 800;
-  // 가격 숫자: 앰버로 교체 → 틸 배경과 강한 대비
-  color: var(--accent-warm);
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-}
-
-.priceNum {
-  font-size: clamp(2.25rem, 5vw, 3rem);
-  font-weight: 800;
-  color: var(--foreground);
-  letter-spacing: -0.035em;
-  line-height: 1;
-}
-
-.priceUnit {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.priceDesc {
-  font-size: 0.9375rem;
-  color: var(--muted-strong);
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-  flex: 1;
 }
 
 .priceCtaWrap {
@@ -2903,10 +2908,9 @@ $section-padding-y-lg: 5rem;
 .ctaBlockPainPointWrap {
   margin-bottom: 1.5rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(244, 114, 182, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-md);
-  box-shadow: 0 0 24px rgba(244, 114, 182, 0.15);
   position: relative;
   z-index: 1;
 }
@@ -2919,9 +2923,8 @@ $section-padding-y-lg: 5rem;
   text-align: center;
 
   .emWarm {
-    color: #fbbf24;
+    color: #fcd34d;
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
   }
 }
 
@@ -3982,8 +3985,7 @@ $section-padding-y-lg: 5rem;
   .packageCard:nth-child(3)::before,
   .packageCard:nth-child(4)::before,
   .packageCard:nth-child(5)::before,
-  .priceCard:nth-child(1)::before,
-  .priceCard:nth-child(2)::before,
+  .priceCardUnified::before,
   .priceCta::after,
   .priceBenefitsList li::before,
   .customItem::before,
@@ -4010,7 +4012,7 @@ $section-padding-y-lg: 5rem;
   .heroCtaPrimary:hover,
   .heroCtaSecondary:hover,
   .packageCard:hover,
-  .priceCard:hover,
+  .priceCardUnified:hover,
   .priceCta:hover,
   .telegramButton:hover,
   .workCard:hover,

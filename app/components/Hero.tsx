@@ -57,7 +57,7 @@ export default function Hero() {
             {CTA_PRIMARY} →
           </a>
           <a href="#price" className="heroCtaSecondary">
-            가격 · 패키지 보기
+            패키지 · 견적 보기
           </a>
         </div>
         <p className="heroUrgency">

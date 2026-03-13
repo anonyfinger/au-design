@@ -6,12 +6,12 @@ export default function HeroPriceStrip() {
   return (
     <section
       className="heroPriceStrip"
-      aria-label="제작 가격 안내"
+      aria-label="제작 혜택 안내"
     >
       <div className="heroPriceStripInner">
         <div className="heroPriceStripContent">
           <span className="heroPriceStripText">
-            <strong>7컷 25만원</strong> · <strong>10컷 35만원</strong> · <strong>14컷 45만원</strong>
+            <strong>신규 업소 인증 할인</strong> · <strong>배너 교체 할인</strong> · 업소 상황에 맞춘 <strong>맞춤 견적</strong>
           </span>
         </div>
         <a
