@@ -6,12 +6,14 @@ import {
   HeroPriceStrip,
   SectionTrust,
   SectionPrice,
+  SectionFullService,
   SectionCustom,
   SectionNotice,
   CtaBlock,
   FloatingCta,
   SectionPromoSite,
   ScrollReveal,
+  PortfolioSection,
 } from "./components";
 import {
   SITE_NAME,
@@ -69,20 +71,24 @@ export default function Home() {
         <Hero />
         <HeroPriceStrip />
         <SectionTrust />
+        <ScrollReveal variant="up">
+          <PortfolioSection />
+        </ScrollReveal>
         <ScrollReveal variant="left">
           <SectionPrice />
         </ScrollReveal>
         <ScrollReveal variant="right">
+          <SectionFullService />
+        </ScrollReveal>
+        <ScrollReveal variant="left">
+          <SectionCustom />
+        </ScrollReveal>
+        <ScrollReveal variant="right">
           <SectionPromoSite />
         </ScrollReveal>
-
         <ScrollReveal variant="left">
           <SectionNotice />
         </ScrollReveal>
-        <ScrollReveal variant="right">
-          <SectionCustom />
-        </ScrollReveal>
-
         <ScrollReveal variant="up">
           <CtaBlock />
         </ScrollReveal>

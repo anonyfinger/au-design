@@ -1604,10 +1604,18 @@ $section-padding-y-lg: 5rem;
 #price .sectionHead {
   margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
 
+  .sectionLabel {
+    color: var(--accent);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+
   .sectionTitle {
     padding-bottom: 0.75rem;
-    border-bottom: 3px solid var(--border);
+    border-bottom: 3px solid var(--accent);
     display: inline-block;
+    color: var(--foreground);
   }
 }
 
@@ -1778,14 +1786,18 @@ $section-padding-y-lg: 5rem;
   overflow: hidden;
   padding: 0;
   background: var(--surface);
-  border: 2px solid var(--accent-border);
+  border: 3px solid var(--accent);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md), 0 0 0 1px rgba(13, 148, 136, 0.06);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(13, 148, 136, 0.15),
+    0 8px 32px rgba(13, 148, 136, 0.2);
   max-width: 640px;
   margin: 0 auto;
   transition:
     box-shadow var(--duration-normal) var(--ease-out-smooth),
-    border-color var(--duration-normal) var(--ease-out-smooth);
+    border-color var(--duration-normal) var(--ease-out-smooth),
+    transform var(--duration-normal) var(--ease-out-expo);
   animation: fadeInUp 0.6s var(--ease-out-expo) both;
 
   &::before {
@@ -1794,143 +1806,197 @@ $section-padding-y-lg: 5rem;
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
+    height: 6px;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    background: linear-gradient(90deg, var(--foreground), #0f766e, #0d9488, #14b8a6);
+    background: linear-gradient(90deg, #0f766e 0%, #0d9488 25%, #14b8a6 50%, #2dd4bf 75%, #0d9488 100%);
     background-size: 200% 100%;
     animation: gradientFlow 5s ease infinite;
   }
 
   &:hover {
-    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(13, 148, 136, 0.1);
-    border-color: var(--accent);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 0 2px var(--accent),
+      0 12px 40px rgba(13, 148, 136, 0.25);
+    border-color: var(--accent-hover);
   }
 }
 
 .priceCardUnifiedBadge {
   display: inline-block;
   margin: 1rem 1.5rem 0;
-  padding: 0.4rem 1rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-border);
+  color: var(--surface);
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+  border: none;
   border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
 }
 
 .priceCardUnifiedInner {
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   @media (min-width: $breakpoint-tablet) {
-    padding: 1.5rem 2rem 1.75rem;
+    padding: 1.25rem 2rem 1.75rem;
+    gap: 1.25rem;
   }
 }
 
-.priceCutRow {
+.priceCutBlock {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
   text-align: left;
+  border-left: 5px solid;
 
-  &:last-child .priceCutRowDivider {
-    display: none;
+  &.priceCutBlock1 {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.12) 0%, rgba(20, 184, 166, 0.06) 100%);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    border-left: 5px solid #0d9488;
   }
 
-  &.priceCutRowFeatured {
-    padding: 1rem 1.25rem;
-    margin: 0.5rem 0;
-    background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(20, 184, 166, 0.05) 100%);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(13, 148, 136, 0.25);
+  &.priceCutBlock2 {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.14) 0%, rgba(245, 158, 11, 0.08) 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-left: 5px solid var(--accent-warm);
+    box-shadow: 0 2px 12px rgba(217, 119, 6, 0.15);
+  }
+
+  &.priceCutBlock3 {
+    background: linear-gradient(135deg, rgba(15, 118, 110, 0.14) 0%, rgba(13, 148, 136, 0.06) 100%);
+    border: 1px solid rgba(15, 118, 110, 0.35);
+    border-left: 5px solid #0f766e;
   }
 }
 
-.priceCutRowHead {
+.priceCutBlockHeader {
   display: flex;
   align-items: center;
   gap: 0.5rem 0.75rem;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
+
+.priceCutBlock1 .priceCutBlockHeader { border-bottom-color: rgba(13, 148, 136, 0.25); }
+.priceCutBlock2 .priceCutBlockHeader { border-bottom-color: rgba(217, 119, 6, 0.3); }
+.priceCutBlock3 .priceCutBlockHeader { border-bottom-color: rgba(15, 118, 110, 0.25); }
+
+.priceCutBlockNum {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.priceCutBlock1 .priceCutBlockNum { color: #0d9488; }
+.priceCutBlock2 .priceCutBlockNum { color: var(--accent-warm); }
+.priceCutBlock3 .priceCutBlockNum { color: #0f766e; }
 
 .priceCutBadge {
   font-size: 0.6875rem;
   font-weight: 800;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.7rem;
   color: var(--surface);
-  background: var(--accent);
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   border-radius: var(--radius-full);
   letter-spacing: 0.04em;
+  box-shadow: 0 1px 4px rgba(217, 119, 6, 0.4);
+}
+
+.priceCutBlockBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .priceCutRowItems {
   font-size: 0.9375rem;
   color: var(--foreground);
   font-weight: 500;
-  line-height: 1.65;
-  margin: 0 0 0.35rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .priceCutRowTip {
   font-size: 0.875rem;
   color: var(--muted-strong);
-  line-height: 1.55;
-  margin: 0 0 1rem;
-  padding-left: 0.75rem;
-  border-left: 3px solid var(--accent);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5rem 0 0 1rem;
 }
 
-.priceCutRowDivider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 1rem 0;
-}
+.priceCutBlock1 .priceCutRowTip { border-left: 4px solid #0d9488; }
+.priceCutBlock2 .priceCutRowTip { border-left: 4px solid var(--accent-warm); }
+.priceCutBlock3 .priceCutRowTip { border-left: 4px solid #0f766e; }
 
 .priceCardUnified .priceCtaWrap {
-  padding: 1.25rem 1.5rem 1.75rem;
-  background: linear-gradient(180deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.12) 100%);
-  border-top: 2px solid var(--accent-border);
+  padding: 1.5rem 1.5rem 2rem;
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.15) 0%, rgba(15, 118, 110, 0.2) 100%);
+  border-top: 3px solid var(--accent);
 
   @media (min-width: $breakpoint-tablet) {
-    padding: 1.5rem 2rem 2rem;
+    padding: 1.75rem 2rem 2.25rem;
   }
 }
 
 .priceCtaUrgency {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 0.875rem;
 
   strong {
-    color: var(--foreground);
+    color: var(--accent);
   }
 }
 
 .priceCtaAccent {
-  background: var(--gradient-accent) !important;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%) !important;
   color: var(--surface) !important;
-  font-weight: 700 !important;
-  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25) !important;
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+  padding: 1rem 1.5rem !important;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.45) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
 
   &:hover {
-    background: var(--gradient-accent-hover) !important;
-    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35) !important;
+    background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%) !important;
+    box-shadow: 0 6px 24px rgba(13, 148, 136, 0.5) !important;
   }
 }
 
-.priceType {
+.priceCutBlock .priceType {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.8125rem;
+  padding: 0.4rem 1.1rem;
+  font-size: 1.0625rem;
   font-weight: 800;
-  // 컷수 뱃지: 앰버 톤으로 교체 → 가격 숫자와 시각적 세트
-  color: var(--accent-warm);
-  background: rgba(217, 119, 6, 0.1);
-  border: 1px solid rgba(217, 119, 6, 0.28);
   border-radius: var(--radius-full);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+}
+
+.priceCutBlock1 .priceType {
+  color: var(--surface);
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.35);
+}
+
+.priceCutBlock2 .priceType {
+  color: var(--surface);
+  background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4);
+}
+
+.priceCutBlock3 .priceType {
+  color: var(--surface);
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.4);
 }
 
 .priceSub {
@@ -1948,9 +2014,9 @@ $section-padding-y-lg: 5rem;
   width: 100%;
 }
 
-.priceCtaDesc {
-  font-size: 0.75rem;
-  color: var(--muted);
+.priceCardUnified .priceCtaDesc {
+  font-size: 0.8125rem;
+  color: var(--muted-strong);
   letter-spacing: 0.02em;
 }
 
@@ -2111,6 +2177,111 @@ $section-padding-y-lg: 5rem;
 
 .priceCutGuideEmphasis {
   color: #b7ff00;
+}
+
+// --------------------------------------------
+// SectionFullService — 디자이너 + 개발자 상주
+// --------------------------------------------
+.sectionFullService {
+  .sectionLabel {
+    color: var(--accent);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+}
+
+.fullServiceTeam {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+.fullServiceTeamInner {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fullServiceRole {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  background: linear-gradient(145deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);
+  min-width: 180px;
+}
+
+.fullServiceRoleLabel {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.fullServiceRoleDesc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.fullServiceBenefits {
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1.5px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.fullServiceBenefitsTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  letter-spacing: 0.03em;
+}
+
+.fullServiceBenefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--muted-strong);
+    line-height: 1.6;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+  }
+}
+
+.fullServiceCta {
+  text-align: center;
 }
 
 // --------------------------------------------
@@ -3411,6 +3582,306 @@ $section-padding-y-lg: 5rem;
   &:hover {
     color: var(--accent-hover, var(--accent));
   }
+}
+
+// --------------------------------------------
+// 포트폴리오 섹션 — 겹침 나열·호버 확대·모바일 슬라이드
+// --------------------------------------------
+.portfolioSection {
+  overflow: visible;
+
+  .portfolioStack {
+    display: none;
+  }
+  .portfolioSlider {
+    display: flex;
+  }
+
+  .portfolioStackWrap {
+    display: none;
+  }
+  @media (min-width: $breakpoint-tablet) {
+    .portfolioStackWrap {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
+    }
+    .portfolioStack {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 0;
+      padding: 3rem 2rem 1rem;
+      margin: 0 auto;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .portfolioSlider {
+      display: none;
+    }
+  }
+}
+
+/* PC: 겹침 없이 간격으로 나열 */
+.portfolioCard {
+  flex-shrink: 0;
+  width: 110px;
+  margin-left: 0;
+  transform-origin: center center;
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-smooth);
+  scroll-snap-align: center;
+  isolation: isolate;
+
+  & + .portfolioCard {
+    margin-left: 0.75rem;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    width: 130px;
+
+    & + .portfolioCard {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.portfolioCardBtn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.portfolioCardInner {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.portfolioCardImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.portfolioCardActive .portfolioCardInner {
+  box-shadow: var(--shadow-lg), 0 0 0 2px var(--accent);
+}
+
+.portfolioCardActive {
+  transform: scale(1.2) translateY(-6px);
+}
+
+.portfolioStackSpacer {
+  flex-shrink: 0;
+  width: 0;
+  height: 1px;
+  pointer-events: none;
+}
+.portfolioStackSpacerEnd {
+  width: 6rem;
+  min-width: 6rem;
+}
+
+/* PC: 하단 페이지네이션 */
+.portfolioPagination {
+  display: none;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.5rem 0 0.5rem;
+  }
+}
+
+.portfolioPageBtn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-out-smooth),
+    border-color var(--duration-fast) var(--ease-out-smooth);
+
+  &:hover:not(:disabled) {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.portfolioPageDots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolioPageDot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-out-smooth),
+    transform var(--duration-fast) var(--ease-out-smooth);
+
+  &:hover {
+    background: var(--muted);
+  }
+}
+.portfolioPageDotActive {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+/* 포토북 효과 라이트박스 */
+.portfolioLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  perspective: 1200px;
+  animation: portfolioLightboxBackdropIn 0.35s var(--ease-out-expo) forwards;
+}
+
+@keyframes portfolioLightboxBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.portfolioLightboxInner {
+  position: relative;
+  max-width: min(90vw, 420px);
+  max-height: 85vh;
+  cursor: default;
+  animation: portfolioLightboxPhotoIn 0.5s var(--ease-out-expo) forwards;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+@keyframes portfolioLightboxPhotoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotateY(-12deg) rotateX(8deg) translateZ(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateY(0) rotateX(0) translateZ(0);
+  }
+}
+
+.portfolioLightboxImage {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.portfolioLightboxClose {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* 모바일: 가로 슬라이드 스크롤 */
+.portfolioSlider {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem 1.5rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: 0 -1rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.portfolioSliderItem {
+  flex-shrink: 0;
+  width: 140px;
+  scroll-snap-align: center;
+}
+
+.portfolioSliderCard {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  font: inherit;
+}
+
+.portfolioSliderImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  vertical-align: middle;
 }
 
 /* 배경: body 직속 레이어 */

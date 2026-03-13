@@ -14,8 +14,8 @@ const PROMO_FEATURES = [
   },
   {
     icon: "💬",
-    title: "텔레그램 예약 연동",
-    desc: "사이트 방문 고객이 텔레그램으로 **바로 예약·문의**할 수 있도록 CTA 버튼을 연결합니다.",
+    title: "텔레그램 문의 링크",
+    desc: "사이트 방문 고객이 텔레그램으로 **바로 문의**할 수 있도록 링크 버튼을 배치합니다.",
   },
   {
     icon: "🗂️",
@@ -37,7 +37,7 @@ const PROMO_FEATURES = [
 const PROMO_STEPS = [
   { step: "01", label: "업소 정보 전달", desc: "코스·가격·소개·이미지 등 기본 정보를 텔레그램으로 전달" },
   { step: "02", label: "사이트 시안 제작", desc: "업소 컨셉에 맞는 디자인 시안 제공 및 수정 반영" },
-  { step: "03", label: "SEO·도메인 설정", desc: "검색 노출 최적화, 도메인 연결, 텔레그램 예약 연동" },
+  { step: "03", label: "SEO·도메인 설정", desc: "검색 노출 최적화, 도메인 연결, 텔레그램 문의 링크 배치" },
   { step: "04", label: "런칭 및 인계", desc: "사이트 오픈 후 관리 방법 안내 및 콘텐츠 업데이트 지원" },
 ] as const;
 
@@ -57,7 +57,7 @@ export default function SectionPromoSite() {
           <p className="sectionDesc">
             플랫폼 등록에 그치지 않고, 업소만의 전용 홍보 사이트를 구축해 드립니다.{" "}
             <strong className="emWarm">구글·네이버 검색 노출</strong> +{" "}
-            <strong className="emWarm">텔레그램 예약 연동</strong>으로{" "}
+            <strong className="emWarm">텔레그램 문의 링크</strong>로{" "}
             <span className="emWarm">독립적인 마케팅 채널</span>을 확보하세요.
           </p>
         </div>
