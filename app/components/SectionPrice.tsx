@@ -54,10 +54,10 @@ export default function SectionPrice() {
           <div className="priceCardUnifiedBadge">즉시 견적 · 할인 혜택</div>
           <div className="priceCardUnifiedInner">
             {CUT_ITEMS.map((item, i) => (
-              <div key={item.type} className={`priceCutRow ${item.badge ? "priceCutRowFeatured" : ""}`}>
+              <div key={item.type} className={`priceCutRow ${"badge" in item && item.badge ? "priceCutRowFeatured" : ""}`}>
                 <div className="priceCutRowHead">
                   <span className="priceType">{item.type}</span>
-                  {item.badge && <span className="priceCutBadge">{item.badge}</span>}
+                  {"badge" in item && item.badge && <span className="priceCutBadge">{item.badge}</span>}
                 </div>
                 <p className="priceCutRowItems">{item.items}</p>
                 <p className="priceCutRowTip">{item.tip}</p>
